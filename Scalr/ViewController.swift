@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
 
+    @IBOutlet weak var addRemainingIngrediensButton: UIButton!
     @IBOutlet weak var ingredientName: UITextField!
     @IBOutlet weak var ingredientTable: UITableView!
     @IBOutlet weak var ounces: UITextField!
@@ -19,6 +20,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         ingredientTable.delegate = self
         ingredientTable.dataSource = self
     }
