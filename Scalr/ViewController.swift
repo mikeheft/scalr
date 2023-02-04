@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var ingredientTable: UITableView!
     @IBOutlet weak var ounces: UITextField!
     @IBOutlet weak var pounds: UITextField!
+    @IBOutlet weak var addIngredientButton: UIButton!
     
     var ingredients: [Ingredient] = []
     
@@ -44,7 +45,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         ounces.text = ""
         ingredientName.text = ""
         ingredientTable.reloadData()
-        print(ingredients)
     }
     
     func addIngredient(lbs: String?, oz: String?, name: String?) {
@@ -79,7 +79,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let row = indexPath.row
         
         if row == 0  && ingredientCount == 0 {
-            cell.textLabel?.text = "Add ingredients"
+            cell.textLabel?.text = "Add Flour(s)"
         } else {
             cell.textLabel?.text = ingredients[row].formatted()
         }

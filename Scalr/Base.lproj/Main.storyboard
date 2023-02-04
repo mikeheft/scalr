@@ -40,16 +40,16 @@
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="kJ3-m5-nsv" userLabel="Ingredients">
-                                <rect key="frame" x="10" y="474.66666666666669" width="373" height="34"/>
+                                <rect key="frame" x="10" y="474.66666666666669" width="373" height="28.333333333333314"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="ttk-EM-x9B" userLabel="IngredientTextFields">
-                                        <rect key="frame" x="0.0" y="0.0" width="373" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="28.333333333333332"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="kp0-h8-f8O">
-                                                <rect key="frame" x="0.0" y="0.0" width="150" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="28.333333333333332"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="lbs" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jMJ-d0-nj3" userLabel="lbs">
-                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="28.333333333333332"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="Ah3-n6-ZXY"/>
                                                         </constraints>
@@ -57,7 +57,7 @@
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="name"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="oz" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6ur-ec-AdT" userLabel="oz">
-                                                        <rect key="frame" x="75" y="0.0" width="75" height="34"/>
+                                                        <rect key="frame" x="75" y="0.0" width="75" height="28.333333333333332"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="1HY-un-d5d"/>
                                                         </constraints>
@@ -67,7 +67,7 @@
                                                 </subviews>
                                             </stackView>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g2f-9X-T77">
-                                                <rect key="frame" x="153" y="0.0" width="220" height="34"/>
+                                                <rect key="frame" x="153" y="0.0" width="220" height="28.333333333333332"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="YKU-HY-rjb"/>
                                                 </constraints>
@@ -82,13 +82,13 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEX-BM-Mky">
-                                <rect key="frame" x="308" y="516" width="75" height="34.333333333333371"/>
+                                <rect key="frame" x="335" y="510.33333333333326" width="48" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34.333333333333343" id="9aO-aK-MTy"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="HGD-Bi-d5n"/>
+                                    <constraint firstAttribute="height" constant="40" id="9aO-aK-MTy"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="HGD-Bi-d5n"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="add48"/>
                                 <connections>
                                     <action selector="addIngredientBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L6A-FW-VNf"/>
                                 </connections>
@@ -113,6 +113,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addIngredientButton" destination="uEX-BM-Mky" id="ja2-R6-UjS"/>
                         <outlet property="ingredientName" destination="g2f-9X-T77" id="rWK-Go-XlO"/>
                         <outlet property="ingredientTable" destination="JaM-Ko-ybQ" id="zJC-MP-Haq"/>
                         <outlet property="ounces" destination="6ur-ec-AdT" id="OPV-nG-IR6"/>
@@ -125,6 +126,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add48" width="48" height="48"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
