@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "999EC61E-A983-487D-9802-1E787A967FBD"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1BA5526D-53B3-4091-A036-AE04D7A2C320"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Scalr/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "addIngredientBtnPressed(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1BA5526D-53B3-4091-A036-AE04D7A2C320 - e6f755edd1d61b36"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Scalr.ViewController.addIngredientBtnPressed(__C.UIButton) -&gt; ()"
+                  moduleName = "Scalr"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mikeheft/code/Scalr/Scalr/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "1138">
+               </Location>
+               <Location
+                  uuid = "1BA5526D-53B3-4091-A036-AE04D7A2C320 - e6f755edd1d61b36"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Scalr.ViewController.addIngredientBtnPressed(__C.UIButton) -&gt; ()"
+                  moduleName = "Scalr"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mikeheft/code/Scalr/Scalr/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "1351">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "721414C3-2D5F-4B7C-8AE4-BDA01BEED986"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Scalr/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "addIngredientBtnPressed(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "721414C3-2D5F-4B7C-8AE4-BDA01BEED986 - e6f755edd1d61b19"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Scalr.ViewController.addIngredientBtnPressed(__C.UIButton) -&gt; ()"
+                  moduleName = "Scalr"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mikeheft/code/Scalr/Scalr/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "660">
+               </Location>
+               <Location
+                  uuid = "721414C3-2D5F-4B7C-8AE4-BDA01BEED986 - e6f755edd1d61b19"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Scalr.ViewController.addIngredientBtnPressed(__C.UIButton) -&gt; ()"
+                  moduleName = "Scalr"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mikeheft/code/Scalr/Scalr/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "876">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
