@@ -9,7 +9,8 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
 
-    @IBOutlet weak var addRemainingIngrediensButton: UIButton!
+
+    @IBOutlet weak var addRemaining: UIButton!
     @IBOutlet weak var ingredientName: UITextField!
     @IBOutlet weak var ingredientTable: UITableView!
     @IBOutlet weak var ounces: UITextField!
@@ -17,12 +18,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var addIngredientButton: UIButton!
     
     var ingredients: [Ingredient] = []
+    var addRemainingGradient: CAGradientLayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        let colors = [#colorLiteral(red: 0.6352941176, green: 0.5176470588, blue: 0.368627451, alpha: 1), #colorLiteral(red: 0.2509803922, green: 0.1607843137, blue: 0.04705882353, alpha: 1), #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)]
         ingredientTable.delegate = self
         ingredientTable.dataSource = self
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        addRemainingGradient?.frame = addRemaining.bounds
     }
 
     @IBAction func addIngredientBtnPressed(_ sender: AnyObject) {
@@ -30,7 +39,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let oz = ounces.text
         let name = ingredientName.text
         var alert: UIAlertController
-        
+
         if name == "" {
             alert = alertController("You have to provide a name for this ingredient")
             self.present(alert, animated: true, completion: nil)
@@ -91,4 +100,3 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
 }
-

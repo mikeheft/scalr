@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		861E46E4298F3F430082839D /* RemainingIngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E46E3298F3F430082839D /* RemainingIngredientsViewController.swift */; };
+		861E46E7298F45B70082839D /* ScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E46E6298F45B70082839D /* ScaleViewController.swift */; };
 		8655BCDA298DF19E0059A601 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8655BCD9298DF19E0059A601 /* AppDelegate.swift */; };
 		8655BCDC298DF19E0059A601 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8655BCDB298DF19E0059A601 /* SceneDelegate.swift */; };
 		8655BCDE298DF19E0059A601 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8655BCDD298DF19E0059A601 /* ViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		861E46E3298F3F430082839D /* RemainingIngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainingIngredientsViewController.swift; sourceTree = "<group>"; };
+		861E46E6298F45B70082839D /* ScaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleViewController.swift; sourceTree = "<group>"; };
 		8655BCD6298DF19E0059A601 /* Scalr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scalr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8655BCD9298DF19E0059A601 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8655BCDB298DF19E0059A601 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +43,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		861E46E5298F3F4F0082839D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8655BCDD298DF19E0059A601 /* ViewController.swift */,
+				861E46E3298F3F430082839D /* RemainingIngredientsViewController.swift */,
+				861E46E6298F45B70082839D /* ScaleViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		8655BCCD298DF19E0059A601 = {
 			isa = PBXGroup;
 			children = (
@@ -60,7 +74,7 @@
 			children = (
 				8655BCD9298DF19E0059A601 /* AppDelegate.swift */,
 				8655BCDB298DF19E0059A601 /* SceneDelegate.swift */,
-				8655BCDD298DF19E0059A601 /* ViewController.swift */,
+				861E46E5298F3F4F0082839D /* Controllers */,
 				8655BCDF298DF19E0059A601 /* Main.storyboard */,
 				8655BCE2298DF1A20059A601 /* Assets.xcassets */,
 				8655BCE4298DF1A20059A601 /* LaunchScreen.storyboard */,
@@ -149,8 +163,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				861E46E4298F3F430082839D /* RemainingIngredientsViewController.swift in Sources */,
 				8655BCEE298E0E410059A601 /* Ingredient.swift in Sources */,
 				8655BCDE298DF19E0059A601 /* ViewController.swift in Sources */,
+				861E46E7298F45B70082839D /* ScaleViewController.swift in Sources */,
 				8655BCDA298DF19E0059A601 /* AppDelegate.swift in Sources */,
 				8655BCDC298DF19E0059A601 /* SceneDelegate.swift in Sources */,
 			);
