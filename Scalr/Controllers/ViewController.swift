@@ -17,7 +17,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var pounds: UITextField!
     @IBOutlet weak var addIngredientButton: UIButton!
     
-    var ingredients: [Ingredient] = []
+    var flourIngredients: [Ingredient] = []
+    var remainingIngredients: [Ingredient] = []
     var addRemainingGradient: CAGradientLayer?
     
     override func viewDidLoad() {
@@ -62,7 +63,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let oz = oz == "" ? "0" : oz
         let lbs = lbs == "" ? "0" : lbs
         let ingredient = Ingredient(pounds: Int(lbs!)!, ounces: Int(oz!)!, name: name!)
-        ingredients.append(ingredient)
+        flourIngredients.append(ingredient)
+    }
+    
+    @IBAction func addRemainingPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "goToAddRemaining", sender: self)
     }
     
     @IBAction func primaryActionTriggered(_ sender: UITextField) {
@@ -80,23 +85,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let ingredientCount: Int = ingredients.count
+        let ingredientCount: Int = flourIngredients.count
         return ingredientCount <= 1 ? 1 : ingredientCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let ingredientCount = ingredients.count
+        let ingredientCount = flourIngredients.count
         let cell = ingredientTable.dequeueReusableCell(withIdentifier: "amounts", for: indexPath)
         let row = indexPath.row
         
         if row == 0  && ingredientCount == 0 {
             cell.textLabel?.text = "Add Flour(s)"
         } else {
-            cell.textLabel?.text = ingredients[row].formatted()
+            cell.textLabel?.text = flourIngredients[row].formatted()
         }
         
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goToAddRemaining" {
+            let destinationVC = segue.destination as! RemainingIngredientsViewController
+            destinationVC.flourIngredients = flourIngredients
+        }
+    }
     
 }

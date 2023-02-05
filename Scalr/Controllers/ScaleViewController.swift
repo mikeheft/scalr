@@ -8,7 +8,9 @@
 import UIKit
 
 class ScaleViewController: UIViewController {
-
+    var flourIngredients: [Ingredient] = []
+    var remainingIngredients: [Ingredient] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,14 +18,17 @@ class ScaleViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func startOverPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "goToStart", sender: self)
     }
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goToStart" {
+            let destinationVC = segue.destination as! ViewController
+            destinationVC.flourIngredients = flourIngredients
+            destinationVC.remainingIngredients = remainingIngredients
+        }
+    }
 
 }

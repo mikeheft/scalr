@@ -8,22 +8,27 @@
 import UIKit
 
 class RemainingIngredientsViewController: UIViewController {
-
+    var flourIngredients: [Ingredient] = []
+    var remainingIngredients: [Ingredient] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        self.performSegue(withIdentifier: "goToAddRemaining", sender: self)
         // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func scalePressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "goToScale", sender: self)
     }
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goToScale" {
+            let destinationVC = segue.destination as! ScaleViewController
+            destinationVC.flourIngredients = flourIngredients
+            destinationVC.remainingIngredients = remainingIngredients
+        }
+    }
 
 }
