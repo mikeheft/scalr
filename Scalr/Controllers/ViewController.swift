@@ -23,22 +23,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 //        let colors = [#colorLiteral(red: 0.6352941176, green: 0.5176470588, blue: 0.368627451, alpha: 1), #colorLiteral(red: 0.2509803922, green: 0.1607843137, blue: 0.04705882353, alpha: 1), #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)]
-        ingredientTable.delegate = self
-        ingredientTable.dataSource = self
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        addRemainingGradient?.frame = addRemaining.bounds
+        self.ingredientTable.delegate = self
+        self.ingredientTable.dataSource = self
+        
+        self.registerTableViewCells()
     }
 
+    // Add ingredients
     @IBAction func addIngredientBtnPressed(_ sender: AnyObject) {
-        let lbs = pounds.text
-        let oz = ounces.text
-        let name = ingredientName.text
+        let lbs = self.pounds.text
+        let oz = self.ounces.text
+        let name = self.ingredientName.text
         var alert: UIAlertController
 
         if name == "" {
@@ -56,13 +52,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         pounds.text = ""
         ounces.text = ""
         ingredientName.text = ""
+        self.view.endEditing(true)
         ingredientTable.reloadData()
     }
     
     func addIngredient(lbs: String?, oz: String?, name: String?) {
         let oz = oz == "" ? "0" : oz
         let lbs = lbs == "" ? "0" : lbs
-        let ingredient = Ingredient(pounds: Int(lbs!)!, ounces: Int(oz!)!, name: name!)
+        let ingredient = Ingredient(name: name!, pounds: Int(lbs!)!, ounces: Int(oz!)!)
         flourIngredients.append(ingredient)
     }
     
@@ -75,6 +72,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.view.endEditing(true)
     }
     
+    // Base Alert
     func alertController(_ title: String, _ localizedString: String = "OK") -> UIAlertController {
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: NSLocalizedString(localizedString, comment: "Default action"), style: .default, handler: { _ in
@@ -84,6 +82,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return alertController
     }
     
+    // Table Views
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let ingredientCount: Int = flourIngredients.count
         return ingredientCount <= 1 ? 1 : ingredientCount
@@ -91,12 +90,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let ingredientCount = flourIngredients.count
-        let cell = ingredientTable.dequeueReusableCell(withIdentifier: "amounts", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as! CustomTableViewCell
         let row = indexPath.row
         
-        if row == 0  && ingredientCount == 0 {
-            cell.textLabel?.text = "Add Flour(s)"
+        cell.ingredients = flourIngredients
+        cell.indexPath = indexPath
+        
+        if row == 0 && ingredientCount == 0 {
+            cell.cancelButton.isHidden = true
         } else {
+            cell.cancelButton.isHidden = false
             cell.textLabel?.text = flourIngredients[row].formatted()
         }
         
@@ -109,6 +112,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let destinationVC = segue.destination as! RemainingIngredientsViewController
             destinationVC.flourIngredients = flourIngredients
         }
+    }
+    
+    private func registerTableViewCells() {
+        let textFieldCell = UINib(nibName: "CustomTableViewCell",
+                                  bundle: nil)
+        self.ingredientTable.register(textFieldCell,
+                                forCellReuseIdentifier: "CustomTableViewCell")
     }
     
 }
