@@ -103,7 +103,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="JaM-Ko-ybQ" firstAttribute="top" secondItem="uEX-BM-Mky" secondAttribute="bottom" id="2tf-Rt-o1x"/>
                             <constraint firstItem="9V2-mV-ghz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="6k5-28-hlY"/>
@@ -133,7 +133,7 @@
                         <outlet property="ingredientTable" destination="JaM-Ko-ybQ" id="zJC-MP-Haq"/>
                         <outlet property="ounces" destination="6ur-ec-AdT" id="OPV-nG-IR6"/>
                         <outlet property="pounds" destination="jMJ-d0-nj3" id="fDc-Qz-ffS"/>
-                        <segue destination="kdg-hx-oYo" kind="show" identifier="goToAddRemaining" id="bJ4-m4-PpQ"/>
+                        <segue destination="kdg-hx-oYo" kind="showDetail" identifier="goToAddRemaining" id="bCy-HI-No2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -143,9 +143,9 @@
         <!--Remaining Ingredients View Controller-->
         <scene sceneID="Xvc-Fr-GDO">
             <objects>
-                <viewController id="kdg-hx-oYo" customClass="RemainingIngredientsViewController" customModule="Scalr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="kdg-hx-oYo" customClass="RemainingIngredientsViewController" customModule="Scalr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ujO-wo-VQr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flour" translatesAutoresizingMaskIntoConstraints="NO" id="dXO-P8-KIw">
@@ -211,7 +211,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YvS-Jf-Efq">
-                                <rect key="frame" x="0.0" y="300.5" width="414" height="432.5"/>
+                                <rect key="frame" x="0.0" y="300.5" width="414" height="456.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="amounts" id="PSg-Ka-TeJ">
@@ -225,7 +225,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHY-jl-Lbn" userLabel="Scale">
-                                <rect key="frame" x="16" y="763" width="382" height="45"/>
+                                <rect key="frame" x="16" y="787" width="382" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Kgv-PX-acf"/>
                                     <constraint firstAttribute="height" constant="45" id="yCE-Jq-z2D"/>
@@ -279,9 +279,9 @@
         <!--Scale View Controller-->
         <scene sceneID="tea-zt-zhs">
             <objects>
-                <viewController id="S3o-hQ-hFJ" customClass="ScaleViewController" customModule="Scalr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="S3o-hQ-hFJ" customClass="ScaleViewController" customModule="Scalr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jef-MX-7JX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flour" translatesAutoresizingMaskIntoConstraints="NO" id="NPU-gk-P7w">
@@ -404,7 +404,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZsE-5m-JHY">
-                                <rect key="frame" x="0.0" y="286.5" width="414" height="446.5"/>
+                                <rect key="frame" x="0.0" y="286.5" width="414" height="470.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="amounts" id="0qc-Vh-WfN">
@@ -418,7 +418,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6d0-xT-Ewu">
-                                <rect key="frame" x="16" y="763" width="382" height="45"/>
+                                <rect key="frame" x="16" y="787" width="382" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="leg-yZ-ggo"/>
                                     <constraint firstAttribute="height" constant="45" id="lhb-HD-7qo"/>
