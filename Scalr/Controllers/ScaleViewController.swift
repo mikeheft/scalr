@@ -25,16 +25,18 @@ class ScaleViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         self.ingredientsTable.delegate = self
         self.ingredientsTable.dataSource = self
-        
+        hideKeyboardWhenTappedAround()
         self.registerTableViewCells()
         
+        setInitialDefaults()
+        
         Ingredient.scale(flours: flourIngredients, remaining: remainingIngredients)
-//        ingredientsTable.reloadData()
+        ingredientsTable.reloadData()
     }
     
     @IBAction func scaleButtonPressed(_ sender: UIButton) {
-        Ingredient.scale(flours: flourIngredients, remaining: remainingIngredients)
-        ingredientsTable.reloadData()
+//        Ingredient.scale(flours: flourIngredients, remaining: remainingIngredients)
+//        ingredientsTable.reloadData()
     }
     
     @IBAction func startOverPressed(_ sender: UIButton) {
@@ -53,6 +55,21 @@ class ScaleViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    func setInitialDefaults() {
+        let combinedIngredients: [Ingredient] = flourIngredients + remainingIngredients
+        
+        let result = combinedIngredients.reduce(into: [String:Float]()) { acc, ing in
+            let lbs = acc["pounds", default: 0.0] + Float(ing.pounds)
+            let oz = acc["ounces", default: 0.0] + ing.ounces
+            acc["pounds"] = lbs
+            acc["ounces"] = oz
+        }
+        self.initialPoundsTextField.text = String(format: "%.0f%",result["pounds"] ?? 0.0)
+        self.initialOuncesTextField.text = String(result["ounces"] ?? 0.0)
+        self.initialNoOfPortionsTextField.text = "1"
+    }
+    
+    // Table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return flourIngredients.count + remainingIngredients.count
     }

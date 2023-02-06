@@ -34,10 +34,10 @@ class Ingredient {
         var strings: [String] = []
         
         if pounds > 0 {
-            strings.append("\(pounds) lbs")
+            strings.append(formattedPounds())
         }
         if ounces > 0.0 {
-            strings.append("\(ounces) oz")
+            strings.append(formattedOunces())
         }
         strings.append(name)
         
@@ -55,6 +55,11 @@ class Ingredient {
     func formattedPercentage() -> String {
         let percentage = bakersPercentage * 100.0
         return String(format: "%.2f%%", percentage)
+    }
+    
+    func asFraction() -> Rational {
+        let total = Double(pounds) + Double(ounces)
+        return Rational(of: total)
     }
     
     private static func updateFlours(_ flourIngredients: [Ingredient], _ flourTotalInOunces: Float) {

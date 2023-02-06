@@ -21,7 +21,7 @@ class RemainingIngredientsViewController: UIViewController, UITableViewDelegate,
         super.viewDidLoad()
         self.ingredientTable.delegate = self
         self.ingredientTable.dataSource = self
-        
+        hideKeyboardWhenTappedAround()
         self.registerTableViewCells()
     }
     
@@ -60,9 +60,9 @@ class RemainingIngredientsViewController: UIViewController, UITableViewDelegate,
         let combinedIngredients = flourIngredients + remainingIngredients
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as! CustomTableViewCell
         
-        if row < flourIngredients.count {
-            cell.cancelButton.isHidden = true
-        }
+        //        if row < flourIngredients.count - 1 {
+        cell.cancelButton.isHidden = true
+        //        }
         
         cell.textLabel?.text = combinedIngredients[row].formatted()
         
@@ -96,7 +96,6 @@ class RemainingIngredientsViewController: UIViewController, UITableViewDelegate,
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "goToScale" {
             let destinationVC = segue.destination as! ScaleViewController
             destinationVC.flourIngredients = flourIngredients

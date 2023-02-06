@@ -26,7 +26,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        let colors = [#colorLiteral(red: 0.6352941176, green: 0.5176470588, blue: 0.368627451, alpha: 1), #colorLiteral(red: 0.2509803922, green: 0.1607843137, blue: 0.04705882353, alpha: 1), #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)]
         self.ingredientTable.delegate = self
         self.ingredientTable.dataSource = self
-        
+        hideKeyboardWhenTappedAround()
         self.registerTableViewCells()
     }
 
@@ -123,4 +123,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                 forCellReuseIdentifier: "CustomTableViewCell")
     }
     
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
