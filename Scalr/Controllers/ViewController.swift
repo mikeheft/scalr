@@ -57,9 +57,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func addIngredient(lbs: String?, oz: String?, name: String?) {
-        let oz = oz == "" ? "0" : oz
-        let lbs = lbs == "" ? "0" : lbs
-        let ingredient = Ingredient(name: name!, pounds: Int(lbs!)!, ounces: Int(oz!)!)
+        let ounces = (oz ?? "").isEmpty ? "0.0" : oz!
+        let pounds = (lbs ?? "").isEmpty ? "0" : lbs!
+        print(ounces.isEmpty)
+        print(pounds.isEmpty)
+        let ingredient = Ingredient(name: name!, pounds: Int(pounds)!, ounces: Float(ounces)!)
         flourIngredients.append(ingredient)
     }
     

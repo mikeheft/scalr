@@ -331,7 +331,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of Portions" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g5K-Ip-1XB" userLabel="NoOfPortionsTextField">
                                                 <rect key="frame" x="0.0" y="29.5" width="150" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ycm-RO-aj0" userLabel="PortionSizeView">
                                                 <rect key="frame" x="0.0" y="72.5" width="150" height="34"/>
@@ -339,12 +339,12 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="lbs" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AH5-to-Bfp" userLabel="PortionSizePounds">
                                                         <rect key="frame" x="0.0" y="0.0" width="72.5" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="oz" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PQz-oB-4IE" userLabel="PortionSizeOunces">
                                                         <rect key="frame" x="77.5" y="0.0" width="72.5" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -366,7 +366,10 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of Portions" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h4a-PO-X5V" userLabel="NoOfPortionsTextField">
                                                 <rect key="frame" x="0.0" y="29.5" width="150" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <action selector="desiredPrimaryACtionTriggered:" destination="S3o-hQ-hFJ" eventType="primaryActionTriggered" id="AYI-eE-FRS"/>
+                                                </connections>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rNv-HE-zqa" userLabel="PortionSizeView">
                                                 <rect key="frame" x="0.0" y="72.5" width="150" height="34"/>
@@ -374,12 +377,18 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="lbs" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cn1-Xg-LWF" userLabel="PortionSizePounds">
                                                         <rect key="frame" x="0.0" y="0.0" width="72.5" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                        <connections>
+                                                            <action selector="desiredPrimaryACtionTriggered:" destination="S3o-hQ-hFJ" eventType="editingDidEnd" id="jcM-40-rdA"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="oz" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSf-CO-jaE" userLabel="PortionSizeOunces">
                                                         <rect key="frame" x="77.5" y="0.0" width="72.5" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                        <connections>
+                                                            <action selector="desiredPrimaryACtionTriggered:" destination="S3o-hQ-hFJ" eventType="editingDidEnd" id="h1U-AJ-8cV"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -418,6 +427,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="SCALE">
                                     <color key="baseBackgroundColor" systemColor="systemBrownColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="scaleButtonPressed:" destination="S3o-hQ-hFJ" eventType="touchUpInside" id="66c-nH-lUY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oUx-lq-oyR"/>
@@ -440,7 +452,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="1B2-Kg-KBE"/>
                     <connections>
+                        <outlet property="desiredNoOfPortions" destination="h4a-PO-X5V" id="3UC-P7-gb8"/>
+                        <outlet property="desiredOuncesTextField" destination="wSf-CO-jaE" id="MoW-iB-Pxt"/>
+                        <outlet property="desiredPoundsTextField" destination="cn1-Xg-LWF" id="7O8-tN-c1P"/>
                         <outlet property="ingredientsTable" destination="ZsE-5m-JHY" id="N7X-z5-Hbl"/>
+                        <outlet property="initialNoOfPortionsTextField" destination="g5K-Ip-1XB" id="ch2-0k-sFt"/>
+                        <outlet property="initialOuncesTextField" destination="PQz-oB-4IE" id="x7w-Pf-hBj"/>
+                        <outlet property="initialPoundsTextField" destination="AH5-to-Bfp" id="jZc-2A-U1A"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToStart" id="i71-on-3SR"/>
                     </connections>
                 </viewController>

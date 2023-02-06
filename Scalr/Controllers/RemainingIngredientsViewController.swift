@@ -41,7 +41,7 @@ class RemainingIngredientsViewController: UIViewController, UITableViewDelegate,
             self.present(alert, animated: true, completion: nil)
             return
         }
-        addIngredient(lbs: lbs, oz: oz, name: name)
+        addRemainingIngredients(lbs: lbs, oz: oz, name: name)
 
         pounds.text = ""
         ounces.text = ""
@@ -69,10 +69,10 @@ class RemainingIngredientsViewController: UIViewController, UITableViewDelegate,
         return cell
     }
     
-    func addIngredient(lbs: String?, oz: String?, name: String?) {
+    func addRemainingIngredients(lbs: String?, oz: String?, name: String?) {
         let oz = oz == "" ? "0" : oz
         let lbs = lbs == "" ? "0" : lbs
-        let ingredient = Ingredient(name: name!,pounds: Int(lbs!)!, ounces: Int(oz!)!)
+        let ingredient = Ingredient(name: name!,pounds: Int(lbs!)!, ounces: Float(oz!)!)
         
         remainingIngredients.append(ingredient)
     }
