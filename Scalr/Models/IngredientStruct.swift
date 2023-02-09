@@ -9,6 +9,9 @@ import Foundation
 
 struct IngredientStruct {
     private static let POUNDS_IN_OUNCES: Double = 16.0
+    static let FLOURS: [String] = [
+        "All Purpose Flour", "Bread Flour", "Cake Flour", "High Gluten Flour"
+    ]
     let name: String
     var pounds: Double
     var ounces: Double

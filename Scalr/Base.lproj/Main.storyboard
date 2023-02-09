@@ -51,6 +51,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="yes" enablesReturnKeyAutomatically="YES"/>
                                         <connections>
+                                            <action selector="flourNamePressed:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="YZ5-jp-w4p"/>
                                             <action selector="primaryActionTriggered:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="ygb-5X-heq"/>
                                         </connections>
                                     </textField>
@@ -73,6 +74,14 @@
                                     <action selector="addIngredientBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L6A-FW-VNf"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="296-Ql-OoC">
+                                <rect key="frame" x="0.0" y="688" width="414" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="tertiarySystemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="mnN-L5-xhT"/>
+                                </constraints>
+                            </pickerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="JaM-Ko-ybQ">
                                 <rect key="frame" x="0.0" y="300.5" width="414" height="432.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -95,7 +104,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="ADD REMAINING">
-                                    <color key="baseBackgroundColor" systemColor="systemBrownColor"/>
+                                    <color key="baseBackgroundColor" red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="addRemainingPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mlo-DU-sQ9"/>
@@ -112,9 +121,11 @@
                             <constraint firstItem="uEX-BM-Mky" firstAttribute="top" secondItem="kJ3-m5-nsv" secondAttribute="bottom" constant="10" id="JLK-Ko-VhJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="izj-Jk-DOU" secondAttribute="trailing" id="JPl-yS-7Mq"/>
                             <constraint firstItem="kJ3-m5-nsv" firstAttribute="top" secondItem="izj-Jk-DOU" secondAttribute="bottom" constant="5" id="R3R-9L-VEU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="296-Ql-OoC" secondAttribute="bottom" id="UMI-44-9kF"/>
                             <constraint firstItem="OXY-PU-ZPT" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="30" id="Ua1-AW-Z7M"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JaM-Ko-ybQ" secondAttribute="trailing" id="VSr-iC-Mlo"/>
                             <constraint firstItem="9V2-mV-ghz" firstAttribute="top" secondItem="JaM-Ko-ybQ" secondAttribute="bottom" constant="30" id="bN9-DC-1sU"/>
+                            <constraint firstItem="296-Ql-OoC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="e13-Bq-VAl"/>
                             <constraint firstItem="OXY-PU-ZPT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eb3-n6-FwV"/>
                             <constraint firstItem="JaM-Ko-ybQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fUI-Xq-Y9G"/>
                             <constraint firstItem="OXY-PU-ZPT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gM0-Y3-GBy"/>
@@ -122,6 +133,7 @@
                             <constraint firstItem="kJ3-m5-nsv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="k3h-25-nPH"/>
                             <constraint firstItem="izj-Jk-DOU" firstAttribute="top" secondItem="OXY-PU-ZPT" secondAttribute="bottom" id="nwa-V2-1qH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kJ3-m5-nsv" secondAttribute="trailing" constant="10" id="oxS-zJ-jN1"/>
+                            <constraint firstItem="296-Ql-OoC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pCg-Pa-KLE"/>
                             <constraint firstItem="izj-Jk-DOU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wj2-3C-5IV"/>
                         </constraints>
                     </view>
@@ -129,6 +141,7 @@
                     <connections>
                         <outlet property="addIngredientButton" destination="uEX-BM-Mky" id="ja2-R6-UjS"/>
                         <outlet property="addRemaining" destination="9V2-mV-ghz" id="mhJ-Ya-Vmz"/>
+                        <outlet property="flourPicker" destination="296-Ql-OoC" id="br5-c1-agt"/>
                         <outlet property="ingredientName" destination="g2f-9X-T77" id="rWK-Go-XlO"/>
                         <outlet property="ingredientTable" destination="JaM-Ko-ybQ" id="zJC-MP-Haq"/>
                         <outlet property="ounces" destination="6ur-ec-AdT" id="OPV-nG-IR6"/>
@@ -415,8 +428,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6d0-xT-Ewu">
-                                <rect key="frame" x="16" y="787" width="382" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6d0-xT-Ewu">
+                                <rect key="frame" x="16" y="765" width="382" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="leg-yZ-ggo"/>
                                     <constraint firstAttribute="height" constant="45" id="lhb-HD-7qo"/>
@@ -475,6 +488,9 @@
         </systemColor>
         <systemColor name="systemBrownColor">
             <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

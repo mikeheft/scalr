@@ -16,6 +16,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var ounces: UITextField!
     @IBOutlet weak var pounds: UITextField!
     @IBOutlet weak var addIngredientButton: UIButton!
+    @IBOutlet weak var flourPicker: UIPickerView!
     
     var flourIngredients: [Ingredient] = []
     var remainingIngredients: [Ingredient] = []
@@ -24,10 +25,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
 //        let colors = [#colorLiteral(red: 0.6352941176, green: 0.5176470588, blue: 0.368627451, alpha: 1), #colorLiteral(red: 0.2509803922, green: 0.1607843137, blue: 0.04705882353, alpha: 1), #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)]
-        self.ingredientTable.delegate = self
-        self.ingredientTable.dataSource = self
+        self.ingredientName.inputView = UIView()
+        self.ingredientName.inputAccessoryView = UIView()
+        setUpFlourPicker()
+        setUpIngredientTable()
         hideKeyboardWhenTappedAround()
-        self.registerTableViewCells()
     }
 
     // Add ingredients
@@ -66,6 +68,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func addRemainingPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "goToAddRemaining", sender: self)
+    }
+    
+    @IBAction func flourNamePressed(_ sender: UITextField) {
+        self.flourPicker.isHidden = false
     }
     
     @IBAction func primaryActionTriggered(_ sender: UITextField) {
@@ -122,6 +128,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                 forCellReuseIdentifier: "CustomTableViewCell")
     }
     
+    private func setUpFlourPicker() {
+        self.flourPicker.isHidden = true
+        self.flourPicker.delegate = self
+        self.flourPicker.dataSource = self
+        view.bringSubviewToFront(flourPicker)
+    }
+    
+    private func setUpIngredientTable() {
+        self.ingredientTable.delegate = self
+        self.ingredientTable.dataSource = self
+        self.registerTableViewCells()
+    }
 }
 
 extension UIViewController {
@@ -134,4 +152,33 @@ extension UIViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+}
+
+extension ViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let titleData = "test"
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 15.0)!,NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.003921568627, green: 0.003921568627, blue: 0, alpha: 1)])
+        return myTitle
+    }
+
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 25
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        ingredientName.text = "Test"
+        flourPicker.isHidden = true
+    }
+}
+
+extension ViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 10
+    }
+    
+    
 }

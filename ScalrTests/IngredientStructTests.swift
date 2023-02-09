@@ -24,8 +24,8 @@ final class IngredientStructTests: XCTestCase {
         let flour = IngredientStruct(name: "Flour", pounds: 1, ounces: 0.0, bakersPercentage: 1.0)
         
         XCTAssertEqual(water.formattedOunces(), "10 oz")
-//        XCTAssertEqual(salt.formattedOunces(), "0.02 oz")
-//        XCTAssertEqual(flour.formattedOunces(), "")
+        XCTAssertEqual(salt.formattedOunces(), "0.02 oz")
+        XCTAssertEqual(flour.formattedOunces(), "")
     }
 
     func testScale() {
