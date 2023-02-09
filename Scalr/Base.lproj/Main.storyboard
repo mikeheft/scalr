@@ -37,19 +37,19 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="lbs" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jMJ-d0-nj3" userLabel="lbs">
                                                 <rect key="frame" x="0.0" y="0.0" width="95" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="name"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="oz" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6ur-ec-AdT" userLabel="oz">
                                                 <rect key="frame" x="100" y="0.0" width="94.5" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="name"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g2f-9X-T77">
                                         <rect key="frame" x="199.5" y="0.0" width="194.5" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="yes" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="yes" enablesReturnKeyAutomatically="YES"/>
                                         <connections>
                                             <action selector="primaryActionTriggered:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="ygb-5X-heq"/>
                                         </connections>
@@ -138,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-66.412213740458014" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="-66.666666666666671" y="3.3482142857142856"/>
         </scene>
         <!--Remaining Ingredients View Controller-->
         <scene sceneID="Xvc-Fr-GDO">
@@ -172,19 +172,19 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="247" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="lbs" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LFB-V1-gjY" userLabel="lbs">
                                                         <rect key="frame" x="0.0" y="0.0" width="95" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="name"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="oz" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zNa-3k-7WB" userLabel="oz">
                                                         <rect key="frame" x="100" y="0.0" width="94.5" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="name"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ua8-6V-JZU">
                                                 <rect key="frame" x="199.5" y="0.0" width="194.5" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="yes" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="yes" enablesReturnKeyAutomatically="YES"/>
                                                 <connections>
                                                     <action selector="primaryActionTriggered:" destination="kdg-hx-oYo" eventType="primaryActionTriggered" id="OeH-01-e3R"/>
                                                 </connections>
@@ -341,10 +341,10 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="oz" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PQz-oB-4IE" userLabel="PortionSizeOunces">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="oz" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Roo-gd-NOU" userLabel="PortionSizeOunces">
                                                         <rect key="frame" x="77.5" y="0.0" width="72.5" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -368,6 +368,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
+                                                    <action selector="desiredNoPortionsChanged:" destination="S3o-hQ-hFJ" eventType="editingDidEnd" id="Ssh-P9-fFK"/>
                                                     <action selector="desiredPrimaryACtionTriggered:" destination="S3o-hQ-hFJ" eventType="primaryActionTriggered" id="AYI-eE-FRS"/>
                                                 </connections>
                                             </textField>
@@ -382,13 +383,10 @@
                                                             <action selector="desiredPrimaryACtionTriggered:" destination="S3o-hQ-hFJ" eventType="editingDidEnd" id="jcM-40-rdA"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="oz" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSf-CO-jaE" userLabel="PortionSizeOunces">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="oz" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Th0-Nf-tU3" userLabel="PortionSizeOunces">
                                                         <rect key="frame" x="77.5" y="0.0" width="72.5" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                        <connections>
-                                                            <action selector="desiredPrimaryACtionTriggered:" destination="S3o-hQ-hFJ" eventType="editingDidEnd" id="h1U-AJ-8cV"/>
-                                                        </connections>
+                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -453,12 +451,12 @@
                     <navigationItem key="navigationItem" id="1B2-Kg-KBE"/>
                     <connections>
                         <outlet property="desiredNoOfPortions" destination="h4a-PO-X5V" id="3UC-P7-gb8"/>
-                        <outlet property="desiredOuncesTextField" destination="wSf-CO-jaE" id="MoW-iB-Pxt"/>
-                        <outlet property="desiredPoundsTextField" destination="cn1-Xg-LWF" id="7O8-tN-c1P"/>
+                        <outlet property="desiredOuncesPerPortion" destination="Th0-Nf-tU3" id="gfk-Os-t3Z"/>
+                        <outlet property="desiredPoundsPerPortion" destination="cn1-Xg-LWF" id="7O8-tN-c1P"/>
                         <outlet property="ingredientsTable" destination="ZsE-5m-JHY" id="N7X-z5-Hbl"/>
                         <outlet property="initialNoOfPortionsTextField" destination="g5K-Ip-1XB" id="ch2-0k-sFt"/>
-                        <outlet property="initialOuncesTextField" destination="PQz-oB-4IE" id="x7w-Pf-hBj"/>
-                        <outlet property="initialPoundsTextField" destination="AH5-to-Bfp" id="jZc-2A-U1A"/>
+                        <outlet property="initialOuncesPerPortion" destination="Roo-gd-NOU" id="AA7-w7-nla"/>
+                        <outlet property="initialPoundsPerPortion" destination="AH5-to-Bfp" id="jZc-2A-U1A"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToStart" id="i71-on-3SR"/>
                     </connections>
                 </viewController>

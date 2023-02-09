@@ -9,25 +9,25 @@ import Foundation
 
 class Ingredient {
     let name: String
-    var pounds: Int = 0
-    var ounces: Float = 0
-    var bakersPercentage: Float = 0.0
+    var pounds: Double = 0.0
+    var ounces: Double = 0.0
+    var bakersPercentage: Double = 0.0
     
-    init(name: String, pounds: Int, ounces: Float, bakersPercentage: Float = 0.0) {
+    init(name: String, pounds: Double, ounces: Double, bakersPercentage: Double = 0.0) {
         self.name = name
         self.pounds = pounds
-        self.ounces = ounces
+        self.ounces = convertToDecimalIfRequired(ounces)
         self.bakersPercentage = bakersPercentage
     }
     
-    static func scale(flours: [Ingredient], remaining: [Ingredient]) {
-        let flourTotalInOunces = flours.reduce(0) { acc, ingredient in acc + ingredient.amountTotalInOunces() }
-        updateFlours(flours, flourTotalInOunces)
-        updateRemaining(remaining, flourTotalInOunces)
+    static func calculatePercentages(flours: [Ingredient], remaining: [Ingredient]) {
+        let flourTotalInOunces = calculateFlourTotal(flours: flours)
+        updateFloursPercentages(flours, flourTotalInOunces)
+        updateRemainingPercentages(remaining, flourTotalInOunces)
     }
     
-    func amountTotalInOunces() -> Float {
-        return (Float(pounds) * 16.0) + Float(ounces)
+    func amountTotalInOunces() -> Double {
+        return Double(pounds) + ounces
     }
     
     func formatted() -> String {
@@ -49,30 +49,47 @@ class Ingredient {
     }
     
     func formattedOunces() -> String {
-        return "\(ounces) oz"
+        if ounces == 0.0 {
+            return ""
+        }
+        var string: String = ""
+        let remainder = ounces.truncatingRemainder(dividingBy: 1)
+        if remainder < 1 && remainder > 0 {
+            string = String((ounces * 100) / 100)
+        } else {
+            string = String(Int(ounces))
+        }
+        return string + " oz"
     }
     
     func formattedPercentage() -> String {
-        let percentage = bakersPercentage * 100.0
-        return String(format: "%.2f%%", percentage)
+        return String(format: "%.2f%%", bakersPercentage * 100.0)
     }
     
     func asFraction() -> Rational {
-        let total = Double(pounds) + Double(ounces)
+        let total = pounds + ounces
         return Rational(of: total)
     }
     
-    private static func updateFlours(_ flourIngredients: [Ingredient], _ flourTotalInOunces: Float) {
+    private static func updateFloursPercentages(_ flourIngredients: [Ingredient], _ flourTotalInOunces: Double) {
         flourIngredients.indices.forEach {
             let ingredient = flourIngredients[$0]
-            ingredient.bakersPercentage = ingredient.amountTotalInOunces() / flourTotalInOunces
+            ingredient.bakersPercentage = (ingredient.amountTotalInOunces() / flourTotalInOunces)
         }
     }
     
-    private static func updateRemaining(_ remainingIngredients: [Ingredient], _ flourTotalInOunces: Float) {
+    private static func updateRemainingPercentages(_ remainingIngredients: [Ingredient], _ flourTotalInOunces: Double) {
         remainingIngredients.indices.forEach {
             let ingredient = remainingIngredients[$0]
-            ingredient.bakersPercentage = ingredient.amountTotalInOunces() / flourTotalInOunces
+            ingredient.bakersPercentage = (ingredient.amountTotalInOunces() / flourTotalInOunces)
         }
+    }
+    
+    private static func calculateFlourTotal(flours: [Ingredient]) -> Double {
+        flours.reduce(0.0) { acc, flour in acc + flour.amountTotalInOunces() }
+    }
+    
+    private func convertToDecimalIfRequired(_ ounces: Double) -> Double {
+        return ounces >= 1 ? ounces / 16.0 : ounces
     }
 }

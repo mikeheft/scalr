@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		861E46E4298F3F430082839D /* RemainingIngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E46E3298F3F430082839D /* RemainingIngredientsViewController.swift */; };
 		861E46E7298F45B70082839D /* ScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861E46E6298F45B70082839D /* ScaleViewController.swift */; };
+		8640E8E02991FFF600842B23 /* IngredientStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640E8DF2991FFF600842B23 /* IngredientStruct.swift */; };
+		8640E8EA2993171100842B23 /* ScalrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640E8E92993171100842B23 /* ScalrTests.swift */; };
+		8640E8F12993172C00842B23 /* IngredientStructTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8640E8F02993172C00842B23 /* IngredientStructTests.swift */; };
 		8652E13C299065B60045A7EF /* CustomScaledTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652E13A299065B60045A7EF /* CustomScaledTableViewCell.swift */; };
 		8652E13D299065B60045A7EF /* CustomScaledTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8652E13B299065B60045A7EF /* CustomScaledTableViewCell.xib */; };
 		8655BCDA298DF19E0059A601 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8655BCD9298DF19E0059A601 /* AppDelegate.swift */; };
@@ -23,9 +26,23 @@
 		86ED06C629911D9A00838960 /* Rational.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ED06C529911D9A00838960 /* Rational.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8640E8EB2993171100842B23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8655BCCE298DF19E0059A601 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8655BCD5298DF19E0059A601;
+			remoteInfo = Scalr;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		861E46E3298F3F430082839D /* RemainingIngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainingIngredientsViewController.swift; sourceTree = "<group>"; };
 		861E46E6298F45B70082839D /* ScaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleViewController.swift; sourceTree = "<group>"; };
+		8640E8DF2991FFF600842B23 /* IngredientStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientStruct.swift; sourceTree = "<group>"; };
+		8640E8E72993171100842B23 /* ScalrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScalrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8640E8E92993171100842B23 /* ScalrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalrTests.swift; sourceTree = "<group>"; };
+		8640E8F02993172C00842B23 /* IngredientStructTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientStructTests.swift; sourceTree = "<group>"; };
 		8652E13A299065B60045A7EF /* CustomScaledTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScaledTableViewCell.swift; sourceTree = "<group>"; };
 		8652E13B299065B60045A7EF /* CustomScaledTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomScaledTableViewCell.xib; sourceTree = "<group>"; };
 		8655BCD6298DF19E0059A601 /* Scalr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scalr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +60,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8640E8E42993171100842B23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8655BCD3298DF19E0059A601 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -63,6 +87,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		8640E8E82993171100842B23 /* ScalrTests */ = {
+			isa = PBXGroup;
+			children = (
+				8640E8E92993171100842B23 /* ScalrTests.swift */,
+				8640E8F02993172C00842B23 /* IngredientStructTests.swift */,
+			);
+			path = ScalrTests;
+			sourceTree = "<group>";
+		};
 		8652E139299064060045A7EF /* CustomTableCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				8655BCD8298DF19E0059A601 /* Scalr */,
+				8640E8E82993171100842B23 /* ScalrTests */,
 				8655BCD7298DF19E0059A601 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				8655BCD6298DF19E0059A601 /* Scalr.app */,
+				8640E8E72993171100842B23 /* ScalrTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,6 +146,7 @@
 			children = (
 				8655BCED298E0E410059A601 /* Ingredient.swift */,
 				86ED06C529911D9A00838960 /* Rational.swift */,
+				8640E8DF2991FFF600842B23 /* IngredientStruct.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -118,6 +154,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8640E8E62993171100842B23 /* ScalrTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8640E8ED2993171100842B23 /* Build configuration list for PBXNativeTarget "ScalrTests" */;
+			buildPhases = (
+				8640E8E32993171100842B23 /* Sources */,
+				8640E8E42993171100842B23 /* Frameworks */,
+				8640E8E52993171100842B23 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8640E8EC2993171100842B23 /* PBXTargetDependency */,
+			);
+			name = ScalrTests;
+			productName = ScalrTests;
+			productReference = 8640E8E72993171100842B23 /* ScalrTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		8655BCD5298DF19E0059A601 /* Scalr */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8655BCEA298DF1A20059A601 /* Build configuration list for PBXNativeTarget "Scalr" */;
@@ -145,6 +199,10 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					8640E8E62993171100842B23 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 8655BCD5298DF19E0059A601;
+					};
 					8655BCD5298DF19E0059A601 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -164,11 +222,19 @@
 			projectRoot = "";
 			targets = (
 				8655BCD5298DF19E0059A601 /* Scalr */,
+				8640E8E62993171100842B23 /* ScalrTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8640E8E52993171100842B23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8655BCD4298DF19E0059A601 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -184,12 +250,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8640E8E32993171100842B23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8640E8EA2993171100842B23 /* ScalrTests.swift in Sources */,
+				8640E8F12993172C00842B23 /* IngredientStructTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8655BCD2298DF19E0059A601 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				861E46E4298F3F430082839D /* RemainingIngredientsViewController.swift in Sources */,
 				8655BCEE298E0E410059A601 /* Ingredient.swift in Sources */,
+				8640E8E02991FFF600842B23 /* IngredientStruct.swift in Sources */,
 				86ED06C629911D9A00838960 /* Rational.swift in Sources */,
 				8655BCDE298DF19E0059A601 /* ViewController.swift in Sources */,
 				86EC7E0D29902944009F6719 /* CustomTableViewCell.swift in Sources */,
@@ -201,6 +277,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8640E8EC2993171100842B23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8655BCD5298DF19E0059A601 /* Scalr */;
+			targetProxy = 8640E8EB2993171100842B23 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8655BCDF298DF19E0059A601 /* Main.storyboard */ = {
@@ -222,6 +306,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8640E8EE2993171100842B23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 29JELNPR9K;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikeheft.ScalrTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scalr.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Scalr";
+			};
+			name = Debug;
+		};
+		8640E8EF2993171100842B23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 29JELNPR9K;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikeheft.ScalrTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scalr.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Scalr";
+			};
+			name = Release;
+		};
 		8655BCE8298DF1A20059A601 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -399,6 +519,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8640E8ED2993171100842B23 /* Build configuration list for PBXNativeTarget "ScalrTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8640E8EE2993171100842B23 /* Debug */,
+				8640E8EF2993171100842B23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8655BCD1298DF19E0059A601 /* Build configuration list for PBXProject "Scalr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
