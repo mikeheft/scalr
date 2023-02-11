@@ -74,12 +74,12 @@
                                     <action selector="addIngredientBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L6A-FW-VNf"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="296-Ql-OoC">
-                                <rect key="frame" x="0.0" y="688" width="414" height="150"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <pickerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="296-Ql-OoC">
+                                <rect key="frame" x="0.0" y="638" width="414" height="200"/>
+                                <color key="backgroundColor" systemColor="quaternarySystemFillColor"/>
                                 <color key="tintColor" systemColor="tertiarySystemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="mnN-L5-xhT"/>
+                                    <constraint firstAttribute="height" constant="200" id="mnN-L5-xhT"/>
                                 </constraints>
                             </pickerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="JaM-Ko-ybQ">
@@ -483,6 +483,9 @@
         <image name="brownIcons8Add48" width="48" height="48"/>
         <image name="brownRestart48" width="48" height="48"/>
         <image name="flour" width="1417" height="1417"/>
+        <systemColor name="quaternarySystemFillColor">
+            <color red="0.45490196078431372" green="0.45490196078431372" blue="0.50196078431372548" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

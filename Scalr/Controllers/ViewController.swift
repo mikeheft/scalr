@@ -25,9 +25,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
 //        let colors = [#colorLiteral(red: 0.6352941176, green: 0.5176470588, blue: 0.368627451, alpha: 1), #colorLiteral(red: 0.2509803922, green: 0.1607843137, blue: 0.04705882353, alpha: 1), #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)]
-        self.ingredientName.inputView = UIView()
-        self.ingredientName.inputAccessoryView = UIView()
         setUpFlourPicker()
+        self.ingredientName.inputView = flourPicker
         setUpIngredientTable()
         hideKeyboardWhenTappedAround()
     }
@@ -156,17 +155,17 @@ extension UIViewController {
 
 extension ViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let titleData = "test"
+        let titleData = Ingredient.FLOURS[row]
         let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 15.0)!,NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.003921568627, green: 0.003921568627, blue: 0, alpha: 1)])
         return myTitle
     }
 
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 25
+        return 25.0
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        ingredientName.text = "Test"
+        ingredientName.text = Ingredient.FLOURS[row]
         flourPicker.isHidden = true
     }
 }
@@ -177,7 +176,7 @@ extension ViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 10
+        return Ingredient.FLOURS.count
     }
     
     

@@ -8,6 +8,10 @@
 import Foundation
 
 class Ingredient {
+    static let FLOURS: [String] = [
+        "A/P Flour", "Bread Flour", "High Gluten Flour",
+        "Spelt", "Whole Wheat Flour", "Pastry Flour", "Semolina", "Durum"
+    ]
     let name: String
     var pounds: Double = 0.0
     var ounces: Double = 0.0
