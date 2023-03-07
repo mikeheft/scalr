@@ -74,11 +74,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         view.bringSubviewToFront(flourPicker)
     }
     
-//    @IBAction func primaryActionTriggered(_ sender: UITextField) {
-//        addIngredientBtnPressed(sender)
-//        self.view.endEditing(true)
-//    }
-    
     // Base Alert
     func alertController(_ title: String, _ localizedString: String = "OK") -> UIAlertController {
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
@@ -165,11 +160,12 @@ extension ViewController: UIPickerViewDelegate {
     }
 
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 50
+        return 40
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         ingredientName.text = IngredientStruct.FLOURS[row]
+        view.sendSubviewToBack(flourPicker)
     }
 }
 

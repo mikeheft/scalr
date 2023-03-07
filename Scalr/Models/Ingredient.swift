@@ -55,7 +55,7 @@ class Ingredient {
         var string: String = ""
         let remainder = ounces.truncatingRemainder(dividingBy: 1)
         if remainder < 1 && remainder > 0 {
-            string = String((ounces * 100) / 100)
+            string = String(ounces * 16)
         } else {
             string = String(Int(ounces))
         }
