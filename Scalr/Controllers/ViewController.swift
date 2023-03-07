@@ -71,13 +71,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func flourNamePressed(_ sender: UITextField) {
-        self.flourPicker.isHidden = false
+        view.bringSubviewToFront(flourPicker)
     }
     
-    @IBAction func primaryActionTriggered(_ sender: UITextField) {
-        addIngredientBtnPressed(sender)
-        self.view.endEditing(true)
-    }
+//    @IBAction func primaryActionTriggered(_ sender: UITextField) {
+//        addIngredientBtnPressed(sender)
+//        self.view.endEditing(true)
+//    }
     
     // Base Alert
     func alertController(_ title: String, _ localizedString: String = "OK") -> UIAlertController {
@@ -114,7 +114,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "goToAddRemaining" {
             let destinationVC = segue.destination as! RemainingIngredientsViewController
             destinationVC.flourIngredients = flourIngredients
@@ -129,10 +128,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     private func setUpFlourPicker() {
-        self.flourPicker.isHidden = true
         self.flourPicker.delegate = self
         self.flourPicker.dataSource = self
-        view.bringSubviewToFront(flourPicker)
     }
     
     private func setUpIngredientTable() {
@@ -155,19 +152,24 @@ extension UIViewController {
 }
 
 extension ViewController: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let titleData = "test"
-        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 15.0)!,NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.003921568627, green: 0.003921568627, blue: 0, alpha: 1)])
-        return myTitle
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let label = UILabel()
+        label.text = IngredientStruct.FLOURS[row]
+        label.textColor = UIColor.black
+        DispatchQueue.main.async {  // change color of the middle row
+            if let label = pickerView.view(forRow: row, forComponent: component) as? UILabel {
+                label.textColor = UIColor.brown
+            }
+        }
+        return label
     }
 
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 25
+        return 50
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        ingredientName.text = "Test"
-        flourPicker.isHidden = true
+        ingredientName.text = IngredientStruct.FLOURS[row]
     }
 }
 
@@ -177,7 +179,7 @@ extension ViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 10
+        return IngredientStruct.FLOURS.count
     }
     
     
