@@ -10,7 +10,7 @@ import Foundation
 struct IngredientStruct {
     private static let POUNDS_IN_OUNCES: Double = 16.0
     static let FLOURS: [String] = [
-        "All Purpose Flour", "Bread Flour", "Cake Flour", "High Gluten Flour"
+        "","All Purpose Flour", "Bread Flour", "Cake Flour", "High Gluten Flour", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST"
     ]
     let name: String
     var pounds: Double
@@ -21,11 +21,11 @@ struct IngredientStruct {
         let scaledFlourIngredients = scaleFlourIngredients(desiredPortionAmounts, flours, remaining)
         let totalFlourWeight = scaledFlourIngredients.reduce(0.0) { $0 + ($1.amountTotalInOunces()) }
         let scaledRemaining = remaining.map {
-            let newIngredientTotal = totalFlourWeight * $0.bakersPercentage
+            let newIngredientTotal = totalFlourWeight * $0.getBakersPercentage()
             let ounces = newIngredientTotal.truncatingRemainder(dividingBy: 1)
             let pounds = newIngredientTotal - ounces
             
-            return IngredientStruct(name:$0.name, pounds: pounds, ounces: ounces, bakersPercentage: $0.bakersPercentage)
+            return IngredientStruct(name:$0.getName(), pounds: pounds, ounces: ounces, bakersPercentage: $0.getBakersPercentage())
         }
         
         return scaledFlourIngredients + scaledRemaining
@@ -75,18 +75,19 @@ struct IngredientStruct {
         let newTotalFlourWeight = calculateNewFlourTotalWeight(desiredPortionAmounts, flourIngredients, remainingIngredients)
         
         return flourIngredients.map {
-            let newIngredientTotal = newTotalFlourWeight * $0.bakersPercentage
+            let bakersPercent = $0.getBakersPercentage()
+            let newIngredientTotal = newTotalFlourWeight * bakersPercent
             let ounces = newIngredientTotal.truncatingRemainder(dividingBy: 1)
             let pounds = newIngredientTotal - ounces
             
-            return IngredientStruct(name:$0.name, pounds: pounds, ounces: ounces, bakersPercentage: $0.bakersPercentage)
+            return IngredientStruct(name:$0.getName(), pounds: pounds, ounces: ounces, bakersPercentage: bakersPercent)
         }
     }
     
     private static func calculateNewFlourTotalWeight(_ desiredPortionAmounts: [String:Double],_ flourIngredients: [Ingredient], _ remainingIngredients: [Ingredient]) -> Double {
         let combined = flourIngredients + remainingIngredients
         let totalDesiredWeight = caclulateTotalDesiredWeight(desiredPortionAmounts)
-        let totalPercentage = combined.reduce(0.0) { $0 + $1.bakersPercentage }
+        let totalPercentage = combined.reduce(0.0) { $0 + $1.getBakersPercentage() }
         
         return totalDesiredWeight / totalPercentage
     }

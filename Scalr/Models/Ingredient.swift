@@ -8,10 +8,10 @@
 import Foundation
 
 class Ingredient {
-    let name: String
-    var pounds: Double = 0.0
-    var ounces: Double = 0.0
-    var bakersPercentage: Double = 0.0
+    private let name: String
+    private var pounds: Double = 0.0
+    private var ounces: Double = 0.0
+    private var bakersPercentage: Double = 0.0
     
     init(name: String, pounds: Double, ounces: Double, bakersPercentage: Double = 0.0) {
         self.name = name
@@ -24,6 +24,22 @@ class Ingredient {
         let flourTotalInOunces = calculateFlourTotal(flours: flours)
         updateFloursPercentages(flours, flourTotalInOunces)
         updateRemainingPercentages(remaining, flourTotalInOunces)
+    }
+    
+    func getBakersPercentage() -> Double {
+        return bakersPercentage
+    }
+    
+    func getName() -> String {
+        return name
+    }
+    
+    func getPounds() -> Double {
+        return pounds
+    }
+    
+    func getOunces() -> Double {
+        return ounces
     }
     
     func amountTotalInOunces() -> Double {
@@ -55,7 +71,7 @@ class Ingredient {
         var string: String = ""
         let remainder = ounces.truncatingRemainder(dividingBy: 1)
         if remainder < 1 && remainder > 0 {
-            string = String((ounces * 100) / 100)
+            string = String(ounces * 16)
         } else {
             string = String(Int(ounces))
         }

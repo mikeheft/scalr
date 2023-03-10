@@ -82,8 +82,8 @@ class ScaleViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let combinedIngredients: [Ingredient] = flourIngredients + remainingIngredients
         
         let result = combinedIngredients.reduce(into: [String:Double]()) { acc, ing in
-            let lbs = acc["weightPerPortion", default: 0.0] + Double(ing.pounds)
-            let oz = acc["ounces", default: 0.0] + Double(ing.ounces)
+            let lbs = acc["weightPerPortion", default: 0.0] + Double(ing.getPounds())
+            let oz = acc["ounces", default: 0.0] + Double(ing.getOunces())
             acc["pounds"] = lbs
             acc["ounces"] = oz
         }
@@ -103,7 +103,7 @@ class ScaleViewController: UIViewController, UITableViewDelegate, UITableViewDat
         var combinedIngredients: [IngredientStruct]
         if scaledIngredients.isEmpty {
             combinedIngredients = (flourIngredients + remainingIngredients).map {
-                return IngredientStruct(name: $0.name, pounds: $0.pounds, ounces: $0.ounces, bakersPercentage: $0.bakersPercentage)
+                return IngredientStruct(name: $0.getName(), pounds: $0.getPounds(), ounces: $0.getOunces(), bakersPercentage: $0.getBakersPercentage())
             }
         } else {
             combinedIngredients = scaledIngredients
@@ -112,12 +112,12 @@ class ScaleViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomScaledTableViewCell") as! CustomScaledTableViewCell
         
         let ingredient = combinedIngredients[row]
-        let pounds = ingredient.formattedPounds()
+        let formattedPounds = ingredient.formattedPounds()
     
         if ingredient.pounds >= 1 && ingredient.ounces == 0.0 {
-            cell.ouncesLabel.text = pounds
-        } else if ingredient.pounds >= 1 {
-            cell.poundsLabel.text = pounds
+            cell.ouncesLabel.text = formattedPounds
+        } else if ingredient.pounds > 0.0 {
+            cell.poundsLabel.text = formattedPounds
         }
         if ingredient.ounces > 0.0 {
             cell.ouncesLabel.text = ingredient.formattedOunces()
