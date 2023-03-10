@@ -9,7 +9,6 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
 
-
     @IBOutlet weak var addRemaining: UIButton!
     @IBOutlet weak var ingredientName: UITextField!
     @IBOutlet weak var ingredientTable: UITableView!
@@ -74,6 +73,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         view.bringSubviewToFront(flourPicker)
     }
     
+    @IBAction func hideFlourPicker(_ sender: UIButton) {
+        view.sendSubviewToBack(flourPicker)
+    }
+    
     // Base Alert
     func alertController(_ title: String, _ localizedString: String = "OK") -> UIAlertController {
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
@@ -86,17 +89,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // Table Views
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let ingredientCount: Int = flourIngredients.count
-        return ingredientCount <= 1 ? 1 : ingredientCount
+        return flourIngredients.count
+    }
+    
+    @objc func removeIngredient(sender: UIButton) {
+        let indexPath = IndexPath(row: sender.tag, section: 0)
+        flourIngredients.remove(at: indexPath.row)
+        ingredientTable.deleteRows(at: [indexPath], with: .none)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let ingredientCount = flourIngredients.count
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as! CustomTableViewCell
         let row = indexPath.row
-        
-        cell.ingredients = flourIngredients
-        cell.indexPath = indexPath
+        cell.cancelButton.addTarget(self, action: #selector(removeIngredient(sender:)), for: .touchUpInside)
         
         if row == 0 && ingredientCount == 0 {
             cell.cancelButton.isHidden = true
@@ -150,7 +156,9 @@ extension ViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let label = UILabel()
         label.text = IngredientStruct.FLOURS[row]
+        label.font = UIFont(name: "Helvetica", size: 20)
         label.textColor = UIColor.black
+        label.sizeToFit()
         DispatchQueue.main.async {  // change color of the middle row
             if let label = pickerView.view(forRow: row, forComponent: component) as? UILabel {
                 label.textColor = UIColor.brown
@@ -165,7 +173,6 @@ extension ViewController: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         ingredientName.text = IngredientStruct.FLOURS[row]
-        view.sendSubviewToBack(flourPicker)
     }
 }
 
