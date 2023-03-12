@@ -58,9 +58,12 @@ class RemainingIngredientsViewController: UIViewController, UITableViewDelegate,
     @objc func removeRemainingIngredient(sender: UIButton) {
         let indexPath = IndexPath(row: sender.tag, section: 0)
         let row = indexPath.row
-        print(sender.tag)
         var combined = flourIngredients + remainingIngredients
-        combined.remove(at: row)
+        let removedIngredient = combined.remove(at: row)
+        let remainingIngredientIndex = remainingIngredients.firstIndex(of: removedIngredient)
+        if let remainingIngredientIndex = remainingIngredientIndex {
+            remainingIngredients.remove(at: remainingIngredientIndex)
+        }
         ingredientTable.deleteRows(at: [indexPath], with: .none)
         ingredientTable.reloadData()
     }
@@ -73,6 +76,8 @@ class RemainingIngredientsViewController: UIViewController, UITableViewDelegate,
         cell.cancelButton.addTarget(self, action: #selector(removeRemainingIngredient(sender:)), for: .touchUpInside)
         if row <= flourIngredients.count - 1 {
             cell.cancelButton.isHidden = true
+        } else {
+            cell.cancelButton.isHidden = false
         }
         
         cell.textLabel?.text = combinedIngredients[row].formatted()

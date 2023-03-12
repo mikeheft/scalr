@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Ingredient {
+class Ingredient: Equatable {
     private let name: String
     private var pounds: Double = 0.0
     private var ounces: Double = 0.0
@@ -18,6 +18,10 @@ class Ingredient {
         self.pounds = pounds
         self.ounces = convertToDecimalIfRequired(ounces)
         self.bakersPercentage = bakersPercentage
+    }
+    
+    static func ==(lhs: Ingredient, rhs: Ingredient) -> Bool {
+        lhs.pounds == rhs.pounds && lhs.ounces == rhs.ounces && lhs.name == rhs.name
     }
     
     static func calculatePercentages(flours: [Ingredient], remaining: [Ingredient]) {
