@@ -40,9 +40,5 @@ final class IngredientStructTests: XCTestCase {
         
         XCTAssertEqual(actualTotal, expectedTotal, "\(actual) != \(expectedTotal)")
     }
-    
-    private func assertFailMsg(_ actual: Any, _ expected: Any) -> String {
-        return String("Expected \(expected) got \(actual) instead.")
-    }
 
 }

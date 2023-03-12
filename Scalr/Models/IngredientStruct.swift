@@ -40,7 +40,7 @@ struct IngredientStruct {
             return ""
         }
         var string: String = ""
-        let remainder = ounces.truncatingRemainder(dividingBy: 1)
+        let remainder = truncatedOunces()
         if remainder < 1 && remainder > 0 {
             string = String((ounces * 100) / 100)
         } else {
@@ -94,6 +94,10 @@ struct IngredientStruct {
     
     private func amountTotalInOunces() -> Double {
         return Double(pounds) + Double(ounces)
+    }
+    
+    private func truncatedOunces() -> Double {
+        return ounces.truncatingRemainder(dividingBy: 1)
     }
 }
 

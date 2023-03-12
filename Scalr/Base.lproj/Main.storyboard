@@ -417,7 +417,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZsE-5m-JHY">
-                                <rect key="frame" x="0.0" y="286.5" width="414" height="470.5"/>
+                                <rect key="frame" x="0.0" y="286.5" width="414" height="480.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="amounts" id="0qc-Vh-WfN">
@@ -430,8 +430,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6d0-xT-Ewu">
-                                <rect key="frame" x="16" y="765" width="382" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6d0-xT-Ewu">
+                                <rect key="frame" x="16" y="787" width="382" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="leg-yZ-ggo"/>
                                     <constraint firstAttribute="height" constant="45" id="lhb-HD-7qo"/>
@@ -458,7 +458,7 @@
                             <constraint firstItem="oUx-lq-oyR" firstAttribute="trailing" secondItem="6d0-xT-Ewu" secondAttribute="trailing" constant="16" id="ehm-Gw-E0w"/>
                             <constraint firstItem="NPU-gk-P7w" firstAttribute="leading" secondItem="oUx-lq-oyR" secondAttribute="leading" id="frn-rb-rtt"/>
                             <constraint firstItem="leQ-Vm-yfF" firstAttribute="leading" secondItem="oUx-lq-oyR" secondAttribute="leading" constant="20" id="gEd-MW-blz"/>
-                            <constraint firstItem="6d0-xT-Ewu" firstAttribute="top" secondItem="ZsE-5m-JHY" secondAttribute="bottom" constant="30" id="m3u-FY-cYc"/>
+                            <constraint firstItem="6d0-xT-Ewu" firstAttribute="top" secondItem="ZsE-5m-JHY" secondAttribute="bottom" constant="20" id="m3u-FY-cYc"/>
                             <constraint firstItem="leQ-Vm-yfF" firstAttribute="top" secondItem="NPU-gk-P7w" secondAttribute="bottom" id="rqY-Pa-bG8"/>
                             <constraint firstItem="oUx-lq-oyR" firstAttribute="trailing" secondItem="leQ-Vm-yfF" secondAttribute="trailing" constant="20" id="yPg-Af-Lnn"/>
                         </constraints>
