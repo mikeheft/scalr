@@ -86,9 +86,9 @@ class RemainingIngredientsViewController: UIViewController, UITableViewDelegate,
     }
     
     func addRemainingIngredients(lbs: String?, oz: String?, name: String?) {
-        let oz = oz == "" ? "0" : oz
-        let lbs = lbs == "" ? "0" : lbs
-        let ingredient = Ingredient(name: name!,pounds: Double(lbs!)!, ounces: Double(oz!)!)
+        let unwrappedPounds = unwrap(lbs)
+        let unwrappedOunces = unwrap(oz)
+        let ingredient = Ingredient(name: name!, pounds: unwrappedPounds, ounces: unwrappedOunces)
         
         remainingIngredients.append(ingredient)
     }
@@ -124,6 +124,12 @@ class RemainingIngredientsViewController: UIViewController, UITableViewDelegate,
                                   bundle: nil)
         self.ingredientTable.register(textFieldCell,
                                 forCellReuseIdentifier: "CustomTableViewCell")
+    }
+    
+    // Unwraps the optional String where the desired value is a double.
+    // This unwraps and provides a default value if null
+    private func unwrap(_ value: String?) -> Double {
+        return value == "" ? 0.0 : Double(value!)!
     }
 
 }

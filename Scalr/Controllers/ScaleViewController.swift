@@ -20,7 +20,6 @@ class ScaleViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var desiredNoOfPortions: UITextField!
     @IBOutlet weak var desiredPoundsPerPortion: UITextField!
     @IBOutlet weak var desiredOuncesPerPortion: UITextField!
-
     
     @IBOutlet weak var ingredientsTable: UITableView!
     
@@ -61,12 +60,13 @@ class ScaleViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     private func desiredPortions(_ noPortions: String?, _ poundsPerPortion: String?, _ ouncesPerPortion: String?) {
-        let noPortions = Double(noPortions ?? "0.0")!
-        let poundsPerPortion = Double(poundsPerPortion ?? "0.0")!
-        let ouncesPerPortion = Double(ouncesPerPortion ?? "0.0")!
-        let dict: [String:Double] = ["noPortions": noPortions, "poundsPerPortion": poundsPerPortion, "ouncesPerPortion":ouncesPerPortion]
+        let noPortions = unwrap(noPortions)
+        let poundsPerPortion = unwrap(poundsPerPortion)
+        let ouncesPerPortion = unwrap(ouncesPerPortion)
+         
+        let dict: [String:Double] = ["noPortions": noPortions, "poundsPerPortion": poundsPerPortion, "ouncesPerPortion": ouncesPerPortion]
         
-        scaledIngredients = IngredientStruct.scale(desiredPortionAmounts: dict, flours: flourIngredients, remaining: remainingIngredients)
+        scaledIngredients = Ingredient.scale(desiredPortionAmounts: dict, flours: flourIngredients, remaining: remainingIngredients)
         ingredientsTable.reloadData()
     }
     
@@ -82,14 +82,16 @@ class ScaleViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let combinedIngredients: [Ingredient] = flourIngredients + remainingIngredients
         
         let result = combinedIngredients.reduce(into: [String:Double]()) { acc, ing in
-            let lbs = acc["weightPerPortion", default: 0.0] + Double(ing.getPounds())
             let oz = acc["ounces", default: 0.0] + Double(ing.getOunces())
+            let lbs = acc["pounds", default: 0.0] + Double(ing.getPounds() / 16.0)
             acc["pounds"] = lbs
             acc["ounces"] = oz
         }
-        self.initialPoundsPerPortion.text = String(format: "%.0f%",result["weightPerPortion"] ?? 0.0)
+        self.initialPoundsPerPortion.text = String(format: "%.0f%",result["pounds"] ?? 0.0)
+        self.initialOuncesPerPortion.text = String(format: "%.2f%",result["ounces"] ?? 0.0)
         self.initialNoOfPortionsTextField.text = "1"
-        self.desiredPoundsPerPortion.text = String(format: "%.0f%",result["weightPerPortion"] ?? 0.0)
+        self.desiredOuncesPerPortion.text = String(format: "%.2f%",result["ounces"] ?? 0.0)
+        self.desiredPoundsPerPortion.text = String(format: "%.0f%",result["pounds"] ?? 0.0)
         self.desiredNoOfPortions.text = "1"
     }
     
@@ -103,27 +105,29 @@ class ScaleViewController: UIViewController, UITableViewDelegate, UITableViewDat
         var combinedIngredients: [IngredientStruct]
         if scaledIngredients.isEmpty {
             combinedIngredients = (flourIngredients + remainingIngredients).map {
-                return IngredientStruct(name: $0.getName(), pounds: $0.getPounds(), ounces: $0.getOunces(), bakersPercentage: $0.getBakersPercentage())
+                return IngredientStruct(name: $0.getName(), ounces: $0.getOunces(), bakersPercentage: $0.getBakersPercentage())
             }
         } else {
             combinedIngredients = scaledIngredients
         }
-//        let combinedIngredients = flourIngredients + remainingIngredients
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomScaledTableViewCell") as! CustomScaledTableViewCell
         
         let ingredient = combinedIngredients[row]
-        let formattedPounds = ingredient.formattedPounds()
+        let ingredientOunces = ingredient.getOunces()
+        let formattedPounds = ingredient.getFormattedPounds()
     
-        if ingredient.pounds >= 1 && ingredient.ounces == 0.0 {
+        if ingredient.getPounds() >= 1 && ingredientOunces == 0.0 {
             cell.ouncesLabel.text = formattedPounds
-        } else if ingredient.pounds > 0.0 {
+        } else if ingredient.getPounds() > 0.0 {
             cell.poundsLabel.text = formattedPounds
         }
-        if ingredient.ounces > 0.0 {
-            cell.ouncesLabel.text = ingredient.formattedOunces()
+        
+        if ingredientOunces > 0.0 {
+            cell.ouncesLabel.text = ingredient.getFormattedOunces()
         }
         
-        cell.nameLabel.text = ingredient.name
+        cell.nameLabel.text = ingredient.getName()
         cell.percentageLabel.text = ingredient.formattedPercentage()
         
         return cell
@@ -134,5 +138,16 @@ class ScaleViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                   bundle: nil)
         self.ingredientsTable.register(textFieldCell,
                                 forCellReuseIdentifier: "CustomScaledTableViewCell")
+    }
+    
+    private func unwrap(_ value: String?) -> Double {
+        var unwrappedValue: Double!
+        if value == nil || value == "" {
+            unwrappedValue = 0.0
+        } else {
+            unwrappedValue = Double(value!)!
+        }
+        
+        return unwrappedValue
     }
 }
