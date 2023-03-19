@@ -50,12 +50,22 @@ class Ingredient: Equatable {
     }
     
     func getPounds() -> Double {
-        let oz = ounces.truncatingRemainder(dividingBy: 1)
-        return ounces - oz
+        let poundsAndOunces = ounces / 16
+        let oz = poundsAndOunces.truncatingRemainder(dividingBy: 1)
+        if poundsAndOunces >= 1 {
+            return (poundsAndOunces - oz) * 16
+        } else {
+            return 0
+        }
+//        poundsAndOunces = poundsAndOunces > 1 ? poundsAndOunces : poundsAndOunces * 16
+        
+//        return (poundsAndOunces - oz) * 16
     }
     
     func getOunces() -> Double {
-        return ounces.truncatingRemainder(dividingBy: 1)
+        let poundsAndOunces = ounces >= 16 ? ounces / 16 : ounces
+        let remainder = poundsAndOunces.truncatingRemainder(dividingBy: 1)
+        return remainder > 0 ? remainder : poundsAndOunces / 16
     }
     
     func formatted() -> String {
@@ -122,14 +132,20 @@ class Ingredient: Equatable {
     private static func updateFloursPercentages(_ flourIngredients: [Ingredient], _ flourTotalInOunces: Double) {
         flourIngredients.indices.forEach {
             let ingredient = flourIngredients[$0]
-            ingredient.bakersPercentage = (ingredient.ounces / flourTotalInOunces)
+            let ounces = ingredient.ounces
+            let convertedOunces = ounces >= 1 ? ounces : ounces * 16
+            
+            ingredient.bakersPercentage = (convertedOunces / flourTotalInOunces)
         }
     }
     
     private static func updateRemainingPercentages(_ remainingIngredients: [Ingredient], _ flourTotalInOunces: Double) {
         remainingIngredients.indices.forEach {
             let ingredient = remainingIngredients[$0]
-            ingredient.bakersPercentage = (ingredient.ounces / flourTotalInOunces)
+            let oz = ingredient.ounces
+            let percent = oz < 1 ? oz * 16 : oz
+            
+            ingredient.bakersPercentage = percent
         }
     }
     
@@ -142,15 +158,15 @@ class Ingredient: Equatable {
         return round(converted * 100) / 100
     }
     
-    private func convertToOunces(_ lbs: Double) -> Double {
-        return lbs >= 1 ? lbs * 16.0 : lbs
+    private func convertPoundsToOunces(_ lbs: Double) -> Double {
+        return lbs * 16
     }
     
-    private func convertOuncesToDecimal(_ oz: Double) -> Double {
-        return oz >= 1 ? oz / 16 : oz
+    private func convertOuncesToPoundsAndOunces() -> Double {
+        return ounces / 16
     }
     
     private func convertToOunces(pounds: Double, ounces: Double) -> Double {
-        return convertToOunces(pounds) + convertOuncesToDecimal(ounces)
+        return convertPoundsToOunces(pounds) + ounces
     }
 }

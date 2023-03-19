@@ -19,9 +19,18 @@ final class IngredientTests: XCTestCase {
     }
     
     func testInit() throws {
-        let ingredient = Ingredient(name: "flour", pounds: 1, ounces: 10, bakersPercentage: 1)
-        XCTAssertEqual(ingredient.getPounds(), 16)
-        XCTAssertEqual(ingredient.getOunces(), 0.625)
+        let flour = Ingredient(name: "flour", pounds: 1, ounces: 10, bakersPercentage: 1)
+        let water = Ingredient(name: "water", pounds: 0, ounces: 10, bakersPercentage: 0.625)
+        let yeast = Ingredient(name: "yeast", pounds: 0, ounces: 0.5, bakersPercentage: 0.033)
+        let salt = Ingredient(name: "salt", pounds: 0, ounces: 0.33, bakersPercentage: 0.022)
+        XCTAssertEqual(flour.getPounds(), 16)
+        XCTAssertEqual(flour.getOunces(), 0.625)
+        XCTAssertEqual(water.getPounds(), 0)
+        XCTAssertEqual(water.getOunces(), 0.625)
+        XCTAssertEqual(yeast.getPounds(), 0)
+        XCTAssertEqual(yeast.getOunces(), 0.5)
+        XCTAssertEqual(salt.getPounds(), 0)
+        XCTAssertEqual(salt.getOunces(), 0.33)
     }
 
     func testScale() throws {
@@ -37,6 +46,17 @@ final class IngredientTests: XCTestCase {
             
             XCTAssertEqual(ingredient.getPounds(), amounts["pounds"]!, "\(name) - pounds")
             XCTAssertEqual(ingredient.getOunces(), amounts["ounces"]!, "\(name) - ounces")
+        }
+    }
+    
+    func testCalculatePercentages_Baguettes() throws {
+        let flours = [Ingredient(name: "flour", pounds: 1, ounces: 0)]
+        let remaining = [Ingredient(name: "water", pounds: 0, ounces: 10), Ingredient(name: "salt", pounds: 0, ounces: 0.33), Ingredient(name: "yeast", pounds: 0, ounces: 0.5)]
+        Ingredient.calculatePercentages(flours: flours, remaining: remaining)
+        let expected = ["flour": 1, "water": 0.625, "yeast": 0.5, "salt": 0.33]
+        
+        for ingredient in (flours + remaining) {
+            XCTAssertEqual(ingredient.getBakersPercentage(), expected[ingredient.getName()]!)
         }
     }
 
