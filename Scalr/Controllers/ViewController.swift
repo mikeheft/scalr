@@ -67,6 +67,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func addRemainingPressed(_ sender: UIButton) {
+        if flourIngredients.isEmpty {
+            let alert = alertController("You must add the ingredient before progressing")
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         self.performSegue(withIdentifier: "goToAddRemaining", sender: self)
     }
     

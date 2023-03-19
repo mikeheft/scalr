@@ -25,9 +25,9 @@ class Ingredient: Equatable {
     
     static func scale(desiredPortionAmounts: [String:Double], flours: [Ingredient], remaining: [Ingredient]) -> [IngredientStruct] {
         let scaledFlourIngredients = scaleFlourIngredients(desiredPortionAmounts, flours, remaining)
-        let totalFlourWeight = scaledFlourIngredients.reduce(0.0) { $0 + ($1.getTotalInOunces()) }
+        let totalFlourWeight = scaledFlourIngredients.reduce(0.0) { $0 + $1.getTotalInOunces() }
         let scaledRemaining = remaining.map {
-            let newIngredientTotal = totalFlourWeight * $0.getBakersPercentage()
+            let newIngredientTotal = totalFlourWeight * round($0.getBakersPercentage() * 1000) / 1000
             
             return IngredientStruct(name:$0.getName(), ounces: newIngredientTotal, bakersPercentage: $0.getBakersPercentage())
         }
@@ -42,7 +42,7 @@ class Ingredient: Equatable {
     }
     
     func getBakersPercentage() -> Double {
-        return bakersPercentage
+        return round(bakersPercentage * 1000) / 1000
     }
     
     func getName() -> String {
@@ -57,14 +57,14 @@ class Ingredient: Equatable {
         } else {
             return 0
         }
-//        poundsAndOunces = poundsAndOunces > 1 ? poundsAndOunces : poundsAndOunces * 16
-        
-//        return (poundsAndOunces - oz) * 16
     }
     
     func getOunces() -> Double {
         let poundsAndOunces = ounces >= 16 ? ounces / 16 : ounces
         let remainder = poundsAndOunces.truncatingRemainder(dividingBy: 1)
+        if remainder == 0 && ounces >= 16 {
+            return 0
+        }
         return remainder > 0 ? remainder : poundsAndOunces / 16
     }
     
@@ -116,9 +116,9 @@ class Ingredient: Equatable {
     private static func calculateNewFlourTotalWeight(_ desiredPortionAmounts: [String:Double],_ flourIngredients: [Ingredient], _ remainingIngredients: [Ingredient]) -> Double {
         let combined = flourIngredients + remainingIngredients
         let totalDesiredWeight = caclulateTotalDesiredWeight(desiredPortionAmounts)
-        let totalPercentage = combined.reduce(0.0) { $0 + $1.getBakersPercentage() }
+        let totalPercentage = combined.reduce(0.0) { $0 + round($1.getBakersPercentage() * 1000) / 1000 }
         
-        return totalDesiredWeight * totalPercentage
+        return totalDesiredWeight / totalPercentage
     }
     
     private static func caclulateTotalDesiredWeight(_ desiredPortionAmounts: [String:Double]) -> Double {
@@ -126,7 +126,7 @@ class Ingredient: Equatable {
         let poundsPerPortion = desiredPortionAmounts["poundsPerPortion"]!
         let ouncesPerPortion = desiredPortionAmounts["ouncesPerPortion"]!
         
-        return (poundsPerPortion + ouncesPerPortion) * numberOfPortions
+        return ((poundsPerPortion * 16) + ouncesPerPortion) * numberOfPortions
     }
     
     private static func updateFloursPercentages(_ flourIngredients: [Ingredient], _ flourTotalInOunces: Double) {
@@ -142,8 +142,7 @@ class Ingredient: Equatable {
     private static func updateRemainingPercentages(_ remainingIngredients: [Ingredient], _ flourTotalInOunces: Double) {
         remainingIngredients.indices.forEach {
             let ingredient = remainingIngredients[$0]
-            let oz = ingredient.ounces
-            let percent = oz < 1 ? oz * 16 : oz
+            let percent = ingredient.ounces / flourTotalInOunces
             
             ingredient.bakersPercentage = percent
         }

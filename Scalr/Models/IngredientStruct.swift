@@ -9,23 +9,53 @@ import Foundation
 
 struct IngredientStruct {
     private static let POUNDS_IN_OUNCES: Double = 16.0
-    static let FLOURS: [String] = [
-        "","All Purpose Flour", "Bread Flour", "Cake Flour", "High Gluten Flour", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST"
-    ]
+    static let FLOURS: [String] = ["","All Purpose Flour", "Bread Flour", "Cake Flour", "High Gluten Flour"]
     let name: String
     var ounces: Double
     var bakersPercentage: Double
+    
+    func asFraction(fraction: Double) -> String {
+        switch fraction {
+        case 0.125..<0.126:
+             return NSLocalizedString("\u{215B}", comment: "1/8")
+         case 0.25..<0.26:
+             return NSLocalizedString("\u{00BC}", comment: "1/4")
+         case 0.33..<0.34:
+             return NSLocalizedString("\u{2153}", comment: "1/3")
+         case 0.5..<0.6:
+             return NSLocalizedString("\u{00BD}", comment: "1/2")
+         case 0.66..<0.67:
+             return NSLocalizedString("\u{2154}", comment: "2/3")
+         case 0.75..<0.76:
+             return NSLocalizedString("\u{00BE}", comment: "3/4")
+         default:
+            return "\(fraction)"
+        }
+    }
     
     func getName() -> String {
         return name
     }
     
     func getPounds() -> Double {
-        return fromDecimal() - remainingOunces()
+        let poundsAndOunces = ounces / 16
+        let oz = poundsAndOunces.truncatingRemainder(dividingBy: 1)
+        if poundsAndOunces >= 1 {
+            return poundsAndOunces - oz
+        } else {
+            return 0
+        }
     }
     
     func getOunces() -> Double {
-        return round(remainingOunces() * 16)
+        var finalOunces = ounces
+        if ounces >= 16 {
+            let lbs = ounces / 16
+            let oz = lbs.truncatingRemainder(dividingBy: 1)
+            finalOunces = oz * 16
+        }
+        
+        return round(finalOunces * 100) / 100
     }
     
     private func fromDecimal() -> Double {
