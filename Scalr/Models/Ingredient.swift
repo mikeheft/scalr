@@ -16,8 +16,8 @@ class Ingredient: Equatable {
     // pounds are stored as ounces
     init(name: String, pounds: Double = 0.0, ounces: Double = 0.0, bakersPercentage: Double = 0.0) {
         self.name = name
-        self.pounds = pounds
-        self.ounces = ounces / 16
+        self.pounds = pounds * 16
+        self.ounces = ounces
         self.bakersPercentage = bakersPercentage
     }
     
@@ -30,8 +30,9 @@ class Ingredient: Equatable {
         let totalFlourWeight = scaledFlourIngredients.reduce(0.0) { $0 + $1.getTotalInOunces() }
         let scaledRemaining = remaining.map {
             let newIngredientTotal = totalFlourWeight * round($0.getBakersPercentage() * 1000) / 1000
-            let fromDecimal = FromDecimal.convert(newIngredientTotal)
-            return IngredientStruct(name:$0.getName(), pounds: fromDecimal.pounds, ounces: fromDecimal.ounces, bakersPercentage: $0.getBakersPercentage())
+            let converted = FromDecimal.convert(newIngredientTotal)
+            
+            return IngredientStruct(name:$0.getName(), pounds: converted.getConvertedPounds(), ounces: converted.getConvertedOunces(), bakersPercentage: $0.getBakersPercentage())
         }
         
         return scaledFlourIngredients + scaledRemaining

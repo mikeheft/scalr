@@ -39,34 +39,16 @@ struct IngredientStruct {
     }
     
     func getPounds() -> Double {
-        return pounds
-//        let poundsAndOunces = ounces / 16
-//        let oz = poundsAndOunces.truncatingRemainder(dividingBy: 1)
-//        if poundsAndOunces >= 1 {
-//            return poundsAndOunces - oz
-//        } else {
-//            return 0
-//        }
+        return pounds / 16
     }
     
     func getOunces() -> Double {
-        return ounces * 16
-//        var finalOunces = ounces
-//        if ounces >= 16 {
-//            let lbs = ounces / 16
-//            let oz = lbs.truncatingRemainder(dividingBy: 1)
-//            finalOunces = oz * 16
-//        }
-//
-//        return round(finalOunces * 100) / 100
-    }
-    
-    private func fromDecimal() -> Double {
-        return ounces / 16
-    }
-    
-    private func remainingOunces() -> Double {
-        return fromDecimal().truncatingRemainder(dividingBy: 1)
+        let remainder = ounces.truncatingRemainder(dividingBy: 1)
+        if remainder == 0 {
+            return ounces
+        } else {
+            return round(ounces * 100) / 100
+        }
     }
     
     func getFormattedPounds() -> String {
@@ -95,7 +77,7 @@ struct IngredientStruct {
     }
     
     func getTotalInOunces() -> Double {
-        return ounces
+        return pounds + ounces
     }
     
     func asFraction() -> Rational {

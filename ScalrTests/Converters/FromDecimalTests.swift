@@ -17,12 +17,12 @@ final class FromDecimalTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
+    
     func testConvert() throws {
-        let total = 19.0
-        let converted = FromDecimal.convert(total)
+        let converted = FromDecimal.convert(26)
+        
         XCTAssertEqual(1, converted.getConvertedPounds())
-        XCTAssertEqual(3, converted.getConvertedOunces())
+        XCTAssertEqual(10, converted.getConvertedOunces())
     }
 
     func testPerformanceExample() throws {

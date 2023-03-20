@@ -13,18 +13,22 @@ struct FromDecimal {
     var ounces: Double
     
     static func convert(_ total: Double) -> FromDecimal {
-        let fromDecimal = total / 16.0
-        let oz = fromDecimal.truncatingRemainder(dividingBy: 1)
-        let lbs = fromDecimal - oz
+        let oz = total.truncatingRemainder(dividingBy: 16)
+        let lbs = total - oz
         
         return FromDecimal(pounds: lbs, ounces: oz)
     }
     
     func getConvertedOunces() -> Double {
-        return ounces * 16
+        let remainder = ounces.truncatingRemainder(dividingBy: 1)
+        if remainder == 0 {
+            return ounces
+        } else {
+            return round(ounces * 100) / 100
+        }
     }
     
     func getConvertedPounds() -> Double {
-        return pounds
+        return pounds / 16
     }
 }
