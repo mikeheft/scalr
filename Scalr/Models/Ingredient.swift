@@ -9,13 +9,15 @@ import Foundation
 
 class Ingredient: Equatable {
     private let name: String
-    private var ounces: Double = 0.0
-    private var bakersPercentage: Double = 0.0
+    private var pounds: Double
+    private var ounces: Double
+    private var bakersPercentage: Double
     
     // pounds are stored as ounces
-    init(name: String, pounds: Double, ounces: Double, bakersPercentage: Double = 0.0) {
+    init(name: String, pounds: Double = 0.0, ounces: Double = 0.0, bakersPercentage: Double = 0.0) {
         self.name = name
-        self.ounces = convertToOunces(pounds: pounds, ounces: ounces)
+        self.pounds = pounds
+        self.ounces = ounces / 16
         self.bakersPercentage = bakersPercentage
     }
     
@@ -28,8 +30,8 @@ class Ingredient: Equatable {
         let totalFlourWeight = scaledFlourIngredients.reduce(0.0) { $0 + $1.getTotalInOunces() }
         let scaledRemaining = remaining.map {
             let newIngredientTotal = totalFlourWeight * round($0.getBakersPercentage() * 1000) / 1000
-            
-            return IngredientStruct(name:$0.getName(), ounces: newIngredientTotal, bakersPercentage: $0.getBakersPercentage())
+            let fromDecimal = FromDecimal.convert(newIngredientTotal)
+            return IngredientStruct(name:$0.getName(), pounds: fromDecimal.pounds, ounces: fromDecimal.ounces, bakersPercentage: $0.getBakersPercentage())
         }
         
         return scaledFlourIngredients + scaledRemaining
@@ -50,22 +52,24 @@ class Ingredient: Equatable {
     }
     
     func getPounds() -> Double {
-        let poundsAndOunces = ounces / 16
-        let oz = poundsAndOunces.truncatingRemainder(dividingBy: 1)
-        if poundsAndOunces >= 1 {
-            return (poundsAndOunces - oz) * 16
-        } else {
-            return 0
-        }
+        return pounds
+//        let poundsAndOunces = ounces / 16
+//        let oz = poundsAndOunces.truncatingRemainder(dividingBy: 1)
+//        if poundsAndOunces >= 1 {
+//            return (poundsAndOunces - oz) * 16
+//        } else {
+//            return 0
+//        }
     }
     
     func getOunces() -> Double {
-        let poundsAndOunces = ounces >= 16 ? ounces / 16 : ounces
-        let remainder = poundsAndOunces.truncatingRemainder(dividingBy: 1)
-        if remainder == 0 && ounces >= 16 {
-            return 0
-        }
-        return remainder > 0 ? remainder : poundsAndOunces / 16
+        return ounces
+//        let poundsAndOunces = ounces >= 16 ? ounces / 16 : ounces
+//        let remainder = poundsAndOunces.truncatingRemainder(dividingBy: 1)
+//        if remainder == 0 && ounces >= 16 {
+//            return 0
+//        }
+//        return remainder > 0 ? remainder : poundsAndOunces / 16
     }
     
     func formatted() -> String {
@@ -108,8 +112,9 @@ class Ingredient: Equatable {
         return flourIngredients.map {
             let bakersPercent = $0.getBakersPercentage()
             let newIngredientTotal = newTotalFlourWeight * bakersPercent
+            let converted = FromDecimal.convert(newIngredientTotal)
             
-            return IngredientStruct(name:$0.getName(), ounces: newIngredientTotal, bakersPercentage: bakersPercent)
+            return IngredientStruct(name:$0.getName(), pounds: converted.pounds, ounces: converted.ounces, bakersPercentage: bakersPercent)
         }
     }
     
@@ -155,17 +160,5 @@ class Ingredient: Equatable {
     private static func convertOuncesToWholeNumber(_ oz: Double) -> Double {
         let converted = oz < 1 && oz > 0 ? oz * 16 : oz
         return round(converted * 100) / 100
-    }
-    
-    private func convertPoundsToOunces(_ lbs: Double) -> Double {
-        return lbs * 16
-    }
-    
-    private func convertOuncesToPoundsAndOunces() -> Double {
-        return ounces / 16
-    }
-    
-    private func convertToOunces(pounds: Double, ounces: Double) -> Double {
-        return convertPoundsToOunces(pounds) + ounces
     }
 }

@@ -11,6 +11,7 @@ struct IngredientStruct {
     private static let POUNDS_IN_OUNCES: Double = 16.0
     static let FLOURS: [String] = ["","All Purpose Flour", "Bread Flour", "Cake Flour", "High Gluten Flour"]
     let name: String
+    var pounds: Double
     var ounces: Double
     var bakersPercentage: Double
     
@@ -38,24 +39,26 @@ struct IngredientStruct {
     }
     
     func getPounds() -> Double {
-        let poundsAndOunces = ounces / 16
-        let oz = poundsAndOunces.truncatingRemainder(dividingBy: 1)
-        if poundsAndOunces >= 1 {
-            return poundsAndOunces - oz
-        } else {
-            return 0
-        }
+        return pounds
+//        let poundsAndOunces = ounces / 16
+//        let oz = poundsAndOunces.truncatingRemainder(dividingBy: 1)
+//        if poundsAndOunces >= 1 {
+//            return poundsAndOunces - oz
+//        } else {
+//            return 0
+//        }
     }
     
     func getOunces() -> Double {
-        var finalOunces = ounces
-        if ounces >= 16 {
-            let lbs = ounces / 16
-            let oz = lbs.truncatingRemainder(dividingBy: 1)
-            finalOunces = oz * 16
-        }
-        
-        return round(finalOunces * 100) / 100
+        return ounces * 16
+//        var finalOunces = ounces
+//        if ounces >= 16 {
+//            let lbs = ounces / 16
+//            let oz = lbs.truncatingRemainder(dividingBy: 1)
+//            finalOunces = oz * 16
+//        }
+//
+//        return round(finalOunces * 100) / 100
     }
     
     private func fromDecimal() -> Double {

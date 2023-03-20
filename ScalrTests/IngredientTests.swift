@@ -23,14 +23,14 @@ final class IngredientTests: XCTestCase {
         let water = Ingredient(name: "water", pounds: 0, ounces: 10, bakersPercentage: 0.625)
         let yeast = Ingredient(name: "yeast", pounds: 0, ounces: 0.5, bakersPercentage: 0.033)
         let salt = Ingredient(name: "salt", pounds: 0, ounces: 0.33, bakersPercentage: 0.022)
-        XCTAssertEqual(flour.getPounds(), 16)
+        XCTAssertEqual(flour.getPounds(), 1)
         XCTAssertEqual(flour.getOunces(), 0.625)
         XCTAssertEqual(water.getPounds(), 0)
         XCTAssertEqual(water.getOunces(), 0.625)
         XCTAssertEqual(yeast.getPounds(), 0)
-        XCTAssertEqual(yeast.getOunces(), 0.5)
+        XCTAssertEqual(yeast.getOunces(), 0.03125)
         XCTAssertEqual(salt.getPounds(), 0)
-        XCTAssertEqual(salt.getOunces(), 0.33)
+        XCTAssertEqual(salt.getOunces(), 0.020625)
     }
 
     func testScale_Lean() throws {
