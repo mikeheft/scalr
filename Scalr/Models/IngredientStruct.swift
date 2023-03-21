@@ -14,6 +14,7 @@ struct IngredientStruct {
     var pounds: Double
     var ounces: Double
     var bakersPercentage: Double
+    var scaled: Bool = true
     
     func asFraction(fraction: Double) -> String {
         switch fraction {
@@ -47,22 +48,26 @@ struct IngredientStruct {
     }
     
     func getFormattedPounds() -> String {
-        let fromDecimal = ounces >= 16 && ounces != 0 ? ounces / 16 : ounces
-        let oz = fromDecimal.truncatingRemainder(dividingBy: 1)
-        let string = String(format: "%.0f", fromDecimal - oz)
-        return "\(string) lbs"
+        var lbs = getPounds()
+        
+        if !scaled {
+            lbs /= 16
+        }
+        
+        return "\(lbs) lbs"
     }
     
     func getFormattedOunces() -> String {
-        if ounces == 0.0 {
+        let oz = getOunces()
+        if oz == 0.0 {
             return ""
         }
         var string: String = ""
-        let remainder = ounces.truncatingRemainder(dividingBy: 1)
+        let remainder = oz.truncatingRemainder(dividingBy: 1)
         if remainder > 0 {
-            string = String((ounces * 100) / 100)
+            string = String((oz * 100) / 100)
         } else {
-            string = String(Int(ounces))
+            string = String(Int(oz))
         }
         return string + " oz"
     }

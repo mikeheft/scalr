@@ -105,7 +105,7 @@ class ScaleViewController: UIViewController, UITableViewDelegate, UITableViewDat
         var combinedIngredients: [IngredientStruct]
         if scaledIngredients.isEmpty {
             combinedIngredients = (flourIngredients + remainingIngredients).map {
-                return IngredientStruct(name: $0.getName(), pounds: $0.getPounds(), ounces: $0.getOunces(), bakersPercentage: $0.getBakersPercentage())
+                return IngredientStruct(name: $0.getName(), pounds: $0.getPounds(), ounces: $0.getOunces(), bakersPercentage: $0.getBakersPercentage(), scaled: false)
             }
         } else {
             combinedIngredients = scaledIngredients
