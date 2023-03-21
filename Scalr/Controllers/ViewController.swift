@@ -54,6 +54,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         ounces.text = ""
         ingredientName.text = ""
         self.view.endEditing(true)
+        self.view.sendSubviewToBack(flourPicker)
         ingredientTable.reloadData()
     }
     
@@ -66,6 +67,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func addRemainingPressed(_ sender: UIButton) {
+        if flourIngredients.isEmpty {
+            let alert = alertController("You must add the ingredient before progressing")
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         self.performSegue(withIdentifier: "goToAddRemaining", sender: self)
     }
     
@@ -96,12 +102,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let indexPath = IndexPath(row: sender.tag, section: 0)
         flourIngredients.remove(at: indexPath.row)
         ingredientTable.deleteRows(at: [indexPath], with: .none)
+        ingredientTable.reloadData()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let ingredientCount = flourIngredients.count
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as! CustomTableViewCell
         let row = indexPath.row
+        cell.cancelButton.tag = row
         cell.cancelButton.addTarget(self, action: #selector(removeIngredient(sender:)), for: .touchUpInside)
         
         if row == 0 && ingredientCount == 0 {

@@ -55,14 +55,30 @@ class RemainingIngredientsViewController: UIViewController, UITableViewDelegate,
         return flourIngredients.count + remainingIngredients.count
     }
     
+    @objc func removeRemainingIngredient(sender: UIButton) {
+        let indexPath = IndexPath(row: sender.tag, section: 0)
+        let row = indexPath.row
+        var combined = flourIngredients + remainingIngredients
+        let removedIngredient = combined.remove(at: row)
+        let remainingIngredientIndex = remainingIngredients.firstIndex(of: removedIngredient)
+        if let remainingIngredientIndex = remainingIngredientIndex {
+            remainingIngredients.remove(at: remainingIngredientIndex)
+        }
+        ingredientTable.deleteRows(at: [indexPath], with: .none)
+        ingredientTable.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
         let combinedIngredients = flourIngredients + remainingIngredients
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as! CustomTableViewCell
-        
-        //        if row < flourIngredients.count - 1 {
-        cell.cancelButton.isHidden = true
-        //        }
+        cell.cancelButton.tag = row
+        cell.cancelButton.addTarget(self, action: #selector(removeRemainingIngredient(sender:)), for: .touchUpInside)
+        if row <= flourIngredients.count - 1 {
+            cell.cancelButton.isHidden = true
+        } else {
+            cell.cancelButton.isHidden = false
+        }
         
         cell.textLabel?.text = combinedIngredients[row].formatted()
         
@@ -70,9 +86,9 @@ class RemainingIngredientsViewController: UIViewController, UITableViewDelegate,
     }
     
     func addRemainingIngredients(lbs: String?, oz: String?, name: String?) {
-        let oz = oz == "" ? "0" : oz
-        let lbs = lbs == "" ? "0" : lbs
-        let ingredient = Ingredient(name: name!,pounds: Double(lbs!)!, ounces: Double(oz!)!)
+        let unwrappedPounds = unwrap(lbs)
+        let unwrappedOunces = unwrap(oz)
+        let ingredient = Ingredient(name: name!, pounds: unwrappedPounds, ounces: unwrappedOunces)
         
         remainingIngredients.append(ingredient)
     }
@@ -108,6 +124,12 @@ class RemainingIngredientsViewController: UIViewController, UITableViewDelegate,
                                   bundle: nil)
         self.ingredientTable.register(textFieldCell,
                                 forCellReuseIdentifier: "CustomTableViewCell")
+    }
+    
+    // Unwraps the optional String where the desired value is a double.
+    // This unwraps and provides a default value if null
+    private func unwrap(_ value: String?) -> Double {
+        return value == "" ? 0.0 : Double(value!)!
     }
 
 }
