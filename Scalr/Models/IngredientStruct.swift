@@ -39,16 +39,11 @@ struct IngredientStruct {
     }
     
     func getPounds() -> Double {
-        return pounds / 16
+        return pounds
     }
     
     func getOunces() -> Double {
-        let remainder = ounces.truncatingRemainder(dividingBy: 1)
-        if remainder == 0 {
-            return ounces
-        } else {
-            return round(ounces * 100) / 100
-        }
+       return round(ounces * 100) / 100
     }
     
     func getFormattedPounds() -> String {
@@ -64,7 +59,7 @@ struct IngredientStruct {
         }
         var string: String = ""
         let remainder = ounces.truncatingRemainder(dividingBy: 1)
-        if remainder < 1 && remainder > 0 {
+        if remainder > 0 {
             string = String((ounces * 100) / 100)
         } else {
             string = String(Int(ounces))
@@ -76,13 +71,10 @@ struct IngredientStruct {
         return String(format: "%.2f%%", bakersPercentage * 100.0)
     }
     
+    // Pounds are converted back to ounces in order to properly add together with ounces to
+    // get the total weight
     func getTotalInOunces() -> Double {
-        return pounds + ounces
-    }
-    
-    func asFraction() -> Rational {
-        let total = 0 + ounces
-        return Rational(of: total)
+        return (pounds * 16) + ounces
     }
 }
 

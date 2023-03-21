@@ -78,8 +78,8 @@
             filePath = "Scalr/Models/IngredientStruct.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "getFormattedPounds()"
             landmarkType = "7">
          </BreakpointContent>
@@ -126,265 +126,9 @@
             filePath = "Scalr/Models/IngredientStruct.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "getFormattedOunces()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AD1C5DEC-382B-46A1-890A-09B0B4F0699A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Scalr/Models/Ingredient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "scale(desiredPortionAmounts:flours:remaining:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "20B6D761-2C69-4113-90DF-6420E1EC94FF"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Scalr/Models/Ingredient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
-            landmarkName = "updateFloursPercentages(_:_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D963EEE5-398E-481B-8164-053250EFBBB5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Scalr/Models/Ingredient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
-            landmarkName = "updateRemainingPercentages(_:_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DC6B95F4-8D41-4ADA-B268-1582A5C202C2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Scalr/Models/Ingredient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "getOunces()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A0FB7EBD-A246-4E9D-ACE4-A7FD22376165"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Scalr/Models/Ingredient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "getPounds()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "00D06A2F-5003-4629-8F53-D3F34879E80C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Scalr/Models/Ingredient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "getOunces()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "682D12C5-5CB2-4D1B-83E2-AF90BCDAD765"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ScalrTests/IngredientTests.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "testScale_Soft()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1579E65E-501C-4592-879F-007AB942F9E3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Scalr/Models/Ingredient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "getOunces()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BD1ED60A-C7E9-4882-92F1-D4EBAAB00966"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Scalr/Models/IngredientStruct.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "getTotalInOunces()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "39402A56-75B4-4A06-B3E4-5C64658D71CE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Scalr/Models/Ingredient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "calculateNewFlourTotalWeight(_:_:_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EBC79A08-92CF-451E-9583-0AE7D6DED0C7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Scalr/Models/Ingredient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "scaleFlourIngredients(_:_:_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "EBC79A08-92CF-451E-9583-0AE7D6DED0C7 - cea33148c4472773"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static Scalr.Ingredient.scaleFlourIngredients(Swift.Dictionary&lt;Swift.String, Swift.Double&gt;, Swift.Array&lt;Scalr.Ingredient&gt;, Swift.Array&lt;Scalr.Ingredient&gt;) -&gt; Swift.Array&lt;Scalr.IngredientStruct&gt;"
-                  moduleName = "Scalr"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mikeheft/code/Scalr/Scalr/Models/Ingredient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "91">
-               </Location>
-               <Location
-                  uuid = "EBC79A08-92CF-451E-9583-0AE7D6DED0C7 - 7db8e83c8e8a3ce1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Scalr.Ingredient) -&gt; Scalr.IngredientStruct in static Scalr.Ingredient.scaleFlourIngredients(Swift.Dictionary&lt;Swift.String, Swift.Double&gt;, Swift.Array&lt;Scalr.Ingredient&gt;, Swift.Array&lt;Scalr.Ingredient&gt;) -&gt; Swift.Array&lt;Scalr.IngredientStruct&gt;"
-                  moduleName = "Scalr"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mikeheft/code/Scalr/Scalr/Models/Ingredient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "114"
-                  endingLineNumber = "114"
-                  offsetFromSymbolStart = "87">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "45F6FBA9-2A80-4601-931D-26BCA6A3E28C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Scalr/Models/Ingredient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "scaleFlourIngredients(_:_:_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B740FCEB-1EB1-4F22-B1C0-642B3426D72C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Scalr/Models/Converters/FromDecimal.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "convert(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A5AB7D90-A1C6-40B5-9129-603D82F0A8C4"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Scalr/Models/Converters/FromDecimal.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "convert(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -407,64 +151,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "12A49067-C48C-4B4F-9C38-F6DC7F5E5ED8"
+            uuid = "E787C683-DE01-4FD7-A15D-A155F02FAD68"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Scalr/Models/Ingredient.swift"
+            filePath = "Scalr/Models/IngredientStruct.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "scale(desiredPortionAmounts:flours:remaining:)"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "getPounds()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "12A49067-C48C-4B4F-9C38-F6DC7F5E5ED8 - 6dcb329d75730d03"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static Scalr.Ingredient.scale(desiredPortionAmounts: Swift.Dictionary&lt;Swift.String, Swift.Double&gt;, flours: Swift.Array&lt;Scalr.Ingredient&gt;, remaining: Swift.Array&lt;Scalr.Ingredient&gt;) -&gt; Swift.Array&lt;Scalr.IngredientStruct&gt;"
-                  moduleName = "Scalr"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mikeheft/code/Scalr/Scalr/Models/Ingredient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "227">
-               </Location>
-               <Location
-                  uuid = "12A49067-C48C-4B4F-9C38-F6DC7F5E5ED8 - a0ef22fcd935c968"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Scalr.Ingredient) -&gt; Scalr.IngredientStruct in static Scalr.Ingredient.scale(desiredPortionAmounts: Swift.Dictionary&lt;Swift.String, Swift.Double&gt;, flours: Swift.Array&lt;Scalr.Ingredient&gt;, remaining: Swift.Array&lt;Scalr.Ingredient&gt;) -&gt; Swift.Array&lt;Scalr.IngredientStruct&gt;"
-                  moduleName = "Scalr"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mikeheft/code/Scalr/Scalr/Models/Ingredient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "79">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B815FC80-0124-47DB-849D-35807A624876"
+            uuid = "30F21E94-5326-4934-B2DC-805FC8815C21"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Scalr/Models/Ingredient.swift"
+            filePath = "Scalr/Models/IngredientStruct.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "scaleFlourIngredients(_:_:_:)"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "getOunces()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

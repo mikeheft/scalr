@@ -39,10 +39,10 @@ final class IngredientTests: XCTestCase {
         let desiredPortions: [String:Double] = ["noPortions": 4, "poundsPerPortion": 0, "ouncesPerPortion": 13]
         let scaled = Ingredient.scale(desiredPortionAmounts: desiredPortions, flours: flours, remaining: remaining)
         let expected: [String:[String:Double]] = [
-            "flour": ["pounds": 1, "ounces": 14.95, "bakersPercentage": 1], // 2#
-            "water": ["pounds": 1, "ounces": 3.35, "bakersPercentage": 0.625], // 1# 4oz
-//            "yeast": ["pounds": 0, "ounces": 1.02, "bakersPercentage": 0.033], // 1oz
-//            "salt": ["pounds": 0, "ounces": 0.68, "bakersPercentage": 0.022] // 0.75oz
+            "flour": ["pounds": 1, "ounces": 14.95], // 2#
+            "water": ["pounds": 1, "ounces": 3.34], // 1# 4oz
+            "yeast": ["pounds": 0, "ounces": 1.02, "bakersPercentage": 0.033], // 1oz
+            "salt": ["pounds": 0, "ounces": 0.68, "bakersPercentage": 0.022] // 0.75oz
             ]
          
         assertScaled(scaled: scaled, expected: expected)
@@ -62,13 +62,13 @@ final class IngredientTests: XCTestCase {
         Ingredient.calculatePercentages(flours: flours, remaining: remaining)
         let scaled = Ingredient.scale(desiredPortionAmounts: desiredPortions, flours: flours, remaining: remaining)
         let expected: [String:[String:Double]] = [
-            "flour": ["pounds": 2, "ounces": 4.45], // 1# 8oz
-//            "water": ["pounds": 0, "ounces": 14.32], // 1#
-//            "yeast": ["pounds": 0, "ounces": 0.87], // 1oz
-//            "salt": ["pounds": 0, "ounces": 0.66], // 7/8oz
-//            "milk": ["pounds": 0, "ounces": 7.8], // 8oz
-//            "butter": ["pounds": 0, "ounces": 2.59], // 3 oz
-//            "sugar": ["pounds": 0, "ounces": 1.31] // 1.25 oz
+            "flour": ["pounds": 2, "ounces": 4.45], // 2# 8oz
+            "water": ["pounds": 0, "ounces": 14.32], // 1#
+            "yeast": ["pounds": 0, "ounces": 0.87], // 1oz
+            "salt": ["pounds": 0, "ounces": 0.66], // 7/8oz
+            "milk": ["pounds": 0, "ounces": 7.8], // 8oz
+            "butter": ["pounds": 0, "ounces": 2.59], // 3 oz
+            "sugar": ["pounds": 0, "ounces": 1.31] // 1.25 oz
         ]
         
         assertScaled(scaled: scaled, expected: expected)

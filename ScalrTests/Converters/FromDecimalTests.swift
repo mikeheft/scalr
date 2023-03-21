@@ -19,7 +19,7 @@ final class FromDecimalTests: XCTestCase {
     }
     
     func testConvert() throws {
-        let converted = FromDecimal.convert(26)
+        let converted = FromDecimal.convert(26, "")
         
         XCTAssertEqual(1, converted.getConvertedPounds())
         XCTAssertEqual(10, converted.getConvertedOunces())

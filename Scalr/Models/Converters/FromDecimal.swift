@@ -11,12 +11,13 @@ import Foundation
 struct FromDecimal {
     var pounds: Double
     var ounces: Double
+    var name: String
     
-    static func convert(_ total: Double) -> FromDecimal {
+    static func convert(_ total: Double, _ name: String) -> FromDecimal {
         let oz = total.truncatingRemainder(dividingBy: 16)
         let lbs = total - oz
         
-        return FromDecimal(pounds: lbs, ounces: oz)
+        return FromDecimal(pounds: lbs, ounces: oz, name: name)
     }
     
     func getConvertedOunces() -> Double {
