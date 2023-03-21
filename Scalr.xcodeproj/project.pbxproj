@@ -20,9 +20,13 @@
 		8655BCE3298DF1A20059A601 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8655BCE2298DF1A20059A601 /* Assets.xcassets */; };
 		8655BCE6298DF1A20059A601 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8655BCE4298DF1A20059A601 /* LaunchScreen.storyboard */; };
 		8655BCEE298E0E410059A601 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8655BCED298E0E410059A601 /* Ingredient.swift */; };
+		8676AD8E29CA681100428A5E /* Montserrat-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86E8A2C829CA64FC0060D8ED /* Montserrat-Italic-VariableFont_wght.ttf */; };
+		8676AD8F29CA681100428A5E /* Montserrat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86E8A2C929CA64FC0060D8ED /* Montserrat-VariableFont_wght.ttf */; };
 		8687A6CB29BFF75A00530AF5 /* IngredientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8687A6CA29BFF75A00530AF5 /* IngredientTests.swift */; };
 		86D0E09929C87111007001DA /* FromDecimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D0E09829C87111007001DA /* FromDecimal.swift */; };
 		86D0E09D29C872AD007001DA /* FromDecimalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D0E09C29C872AD007001DA /* FromDecimalTests.swift */; };
+		86E8A2CA29CA64FC0060D8ED /* Montserrat-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86E8A2C829CA64FC0060D8ED /* Montserrat-Italic-VariableFont_wght.ttf */; };
+		86E8A2CB29CA64FC0060D8ED /* Montserrat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86E8A2C929CA64FC0060D8ED /* Montserrat-VariableFont_wght.ttf */; };
 		86EC7E0D29902944009F6719 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EC7E0B29902944009F6719 /* CustomTableViewCell.swift */; };
 		86EC7E0E29902944009F6719 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86EC7E0C29902944009F6719 /* CustomTableViewCell.xib */; };
 		86ED06C629911D9A00838960 /* Rational.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ED06C529911D9A00838960 /* Rational.swift */; };
@@ -58,6 +62,8 @@
 		8687A6CA29BFF75A00530AF5 /* IngredientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTests.swift; sourceTree = "<group>"; };
 		86D0E09829C87111007001DA /* FromDecimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromDecimal.swift; sourceTree = "<group>"; };
 		86D0E09C29C872AD007001DA /* FromDecimalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromDecimalTests.swift; sourceTree = "<group>"; };
+		86E8A2C829CA64FC0060D8ED /* Montserrat-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Italic-VariableFont_wght.ttf"; path = "../../../../Downloads/Montserrat/Montserrat-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		86E8A2C929CA64FC0060D8ED /* Montserrat-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-VariableFont_wght.ttf"; path = "../../../../Downloads/Montserrat/Montserrat-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		86EC7E0B29902944009F6719 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		86EC7E0C29902944009F6719 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		86ED06C529911D9A00838960 /* Rational.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rational.swift; sourceTree = "<group>"; };
@@ -133,6 +139,7 @@
 		8655BCD8298DF19E0059A601 /* Scalr */ = {
 			isa = PBXGroup;
 			children = (
+				86E8A2C729CA64AE0060D8ED /* CustomFonts */,
 				8655BCEF298E0E490059A601 /* Models */,
 				8655BCD9298DF19E0059A601 /* AppDelegate.swift */,
 				8655BCDB298DF19E0059A601 /* SceneDelegate.swift */,
@@ -171,6 +178,15 @@
 				86D0E09C29C872AD007001DA /* FromDecimalTests.swift */,
 			);
 			path = Converters;
+			sourceTree = "<group>";
+		};
+		86E8A2C729CA64AE0060D8ED /* CustomFonts */ = {
+			isa = PBXGroup;
+			children = (
+				86E8A2C829CA64FC0060D8ED /* Montserrat-Italic-VariableFont_wght.ttf */,
+				86E8A2C929CA64FC0060D8ED /* Montserrat-VariableFont_wght.ttf */,
+			);
+			path = CustomFonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +270,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8676AD8E29CA681100428A5E /* Montserrat-Italic-VariableFont_wght.ttf in Resources */,
+				8676AD8F29CA681100428A5E /* Montserrat-VariableFont_wght.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,8 +281,10 @@
 			files = (
 				8655BCE6298DF1A20059A601 /* LaunchScreen.storyboard in Resources */,
 				8655BCE3298DF1A20059A601 /* Assets.xcassets in Resources */,
+				86E8A2CB29CA64FC0060D8ED /* Montserrat-VariableFont_wght.ttf in Resources */,
 				86EC7E0E29902944009F6719 /* CustomTableViewCell.xib in Resources */,
 				8655BCE1298DF19E0059A601 /* Main.storyboard in Resources */,
+				86E8A2CA29CA64FC0060D8ED /* Montserrat-Italic-VariableFont_wght.ttf in Resources */,
 				8652E13D299065B60045A7EF /* CustomScaledTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
