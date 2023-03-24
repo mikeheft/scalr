@@ -185,11 +185,10 @@ extension ViewController: UIPickerViewDelegate {
         let label = UILabel()
         label.text = IngredientStruct.FLOURS[row]
         label.font = UIFont(name: "Helvetica", size: 20)
-        label.textColor = UIColor.black
         label.sizeToFit()
         DispatchQueue.main.async {  // change color of the middle row
             if let label = pickerView.view(forRow: row, forComponent: component) as? UILabel {
-                label.textColor = UIColor.brown
+                label.textColor = #colorLiteral(red: 0.1176470588, green: 0.231372549, blue: 0.3529411765, alpha: 1)
             }
         }
         return label
