@@ -28,63 +28,63 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lMI-lb-6aH" userLabel="initial portion">
-                                <rect key="frame" x="10" y="180" width="394" height="73.5"/>
+                                <rect key="frame" x="10" y="180" width="394" height="71.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4gw-T3-dvS">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="73.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="71.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initial Portions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIU-WH-oby" userLabel="Initial Portions">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="18.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="17.5"/>
                                                 <fontDescription key="fontDescription" name="MontserratRoman-Regular" family="Montserrat" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5Il-Uu-tHa" userLabel="initial portions">
-                                                <rect key="frame" x="0.0" y="23.5" width="394" height="50"/>
+                                                <rect key="frame" x="0.0" y="22.5" width="394" height="49"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="e8a-dW-0Gc" userLabel="Initial Number of Portions">
-                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="49"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Portions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCu-4S-rWw" userLabel="Initial Number of Portions Label">
-                                                                <rect key="frame" x="0.0" y="0.0" width="128" height="15"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="128" height="14"/>
                                                                 <fontDescription key="fontDescription" name="MontserratRoman-Regular" family="Montserrat" pointSize="12"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XMk-Rf-OY4" userLabel="Initial Number of Portions TextField">
-                                                                <rect key="frame" x="0.0" y="16" width="128" height="34"/>
+                                                                <rect key="frame" x="0.0" y="15" width="128" height="34"/>
                                                                 <fontDescription key="fontDescription" name="MontserratRoman-Regular" family="Montserrat" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="8BS-wS-eYv" userLabel="Initial Pounds per Portion">
-                                                        <rect key="frame" x="133" y="0.0" width="128" height="50"/>
+                                                        <rect key="frame" x="133" y="0.0" width="128" height="49"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pounds" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vg6-ml-AKg" userLabel="Initial pounds per Portions Label">
-                                                                <rect key="frame" x="0.0" y="0.0" width="128" height="15"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="128" height="14"/>
                                                                 <fontDescription key="fontDescription" name="MontserratRoman-Regular" family="Montserrat" pointSize="12"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P8I-ZU-x7F" userLabel="Initial pounds per Portions TextField">
-                                                                <rect key="frame" x="0.0" y="16" width="128" height="34"/>
+                                                                <rect key="frame" x="0.0" y="15" width="128" height="34"/>
                                                                 <fontDescription key="fontDescription" name="MontserratRoman-Regular" family="Montserrat" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="JcN-oU-GYE" userLabel="Initial Ounces per Portion">
-                                                        <rect key="frame" x="266" y="0.0" width="128" height="50"/>
+                                                        <rect key="frame" x="266" y="0.0" width="128" height="49"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ounces" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBy-Uo-5Qt" userLabel="Initial ounces per Portions Label">
-                                                                <rect key="frame" x="0.0" y="0.0" width="128" height="15"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="128" height="14"/>
                                                                 <fontDescription key="fontDescription" name="MontserratRoman-Regular" family="Montserrat" pointSize="12"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ES7-xp-kVJ" userLabel="Initial ounces per Portions TextField">
-                                                                <rect key="frame" x="0.0" y="16" width="128" height="34"/>
+                                                                <rect key="frame" x="0.0" y="15" width="128" height="34"/>
                                                                 <fontDescription key="fontDescription" name="MontserratRoman-Regular" family="Montserrat" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
@@ -100,13 +100,13 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Flour(s)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izj-Jk-DOU" userLabel="AddFlourLabel">
-                                <rect key="frame" x="0.0" y="263.5" width="414" height="22"/>
+                                <rect key="frame" x="0.0" y="261.5" width="414" height="21"/>
                                 <fontDescription key="fontDescription" name="MontserratRoman-Regular" family="Montserrat" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="kJ3-m5-nsv" userLabel="Ingredients">
-                                <rect key="frame" x="10" y="290.5" width="394" height="40"/>
+                                <rect key="frame" x="10" y="287.5" width="394" height="40"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="kp0-h8-f8O">
                                         <rect key="frame" x="0.0" y="0.0" width="194.5" height="40"/>
@@ -143,7 +143,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEX-BM-Mky">
-                                <rect key="frame" x="332" y="335.5" width="72" height="62"/>
+                                <rect key="frame" x="332" y="332.5" width="72" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="pAL-Cd-buf"/>
                                 </constraints>
@@ -159,7 +159,7 @@
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                             </pickerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="JaM-Ko-ybQ">
-                                <rect key="frame" x="0.0" y="417.5" width="414" height="339.5"/>
+                                <rect key="frame" x="0.0" y="414.5" width="414" height="342.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="amounts" id="Ql1-Pw-lfY">
