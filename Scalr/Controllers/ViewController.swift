@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
-
+    
     @IBOutlet weak var addRemaining: UIButton!
     @IBOutlet weak var ingredientName: UITextField!
     @IBOutlet weak var ingredientTable: UITableView!
@@ -16,6 +16,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var pounds: UITextField!
     @IBOutlet weak var addIngredientButton: UIButton!
     @IBOutlet weak var flourPicker: UIPickerView!
+    @IBOutlet weak var initialNoPortions: UITextField!
+    @IBOutlet weak var initialPoundsPerPortion: UITextField!
+    @IBOutlet weak var initialOuncesPerPortion: UITextField!
     
     var flourIngredients: [Ingredient] = []
     var remainingIngredients: [Ingredient] = []
@@ -23,20 +26,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let colors = [#colorLiteral(red: 0.6352941176, green: 0.5176470588, blue: 0.368627451, alpha: 1), #colorLiteral(red: 0.2509803922, green: 0.1607843137, blue: 0.04705882353, alpha: 1), #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)]
+        //        let colors = [#colorLiteral(red: 0.6352941176, green: 0.5176470588, blue: 0.368627451, alpha: 1), #colorLiteral(red: 0.2509803922, green: 0.1607843137, blue: 0.04705882353, alpha: 1), #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)]
         self.ingredientName.inputView = UIView()
         self.ingredientName.inputAccessoryView = UIView()
         setUpFlourPicker()
         setUpIngredientTable()
         hideKeyboardWhenTappedAround()
     }
-
+    
     // Add ingredients
     @IBAction func addIngredientBtnPressed(_ sender: AnyObject) {
         let lbs = self.pounds.text
         let oz = self.ounces.text
         let name = self.ingredientName.text
         var alert: UIAlertController
+        
+        if textFieldIsEmpty(initialNoPortions) || (textFieldIsEmpty(initialPoundsPerPortion) && textFieldIsEmpty(initialOuncesPerPortion)) {
+            alert = alertController("You must provide initial values for portion and pounds or ounces")
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
 
         if name == "" {
             alert = alertController("You have to provide a name for this ingredient")
@@ -126,6 +135,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if segue.identifier == "goToAddRemaining" {
             let destinationVC = segue.destination as! RemainingIngredientsViewController
             destinationVC.flourIngredients = flourIngredients
+            destinationVC.noPortions = initialNoPortions.text!
+            destinationVC.poundsPerPortion = initialPoundsPerPortion.text!
+            destinationVC.ouncesPerPortion = initialOuncesPerPortion.text!
         }
     }
     
@@ -145,6 +157,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.ingredientTable.delegate = self
         self.ingredientTable.dataSource = self
         self.registerTableViewCells()
+    }
+    
+    private func textFieldIsEmpty(_ textField: UITextField) -> Bool {
+        if let text = textField.text, text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty {
+            return true
+        } else {
+            return false
+        }
     }
 }
 
