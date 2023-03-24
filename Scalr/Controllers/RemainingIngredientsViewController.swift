@@ -16,6 +16,9 @@ class RemainingIngredientsViewController: UIViewController, UITableViewDelegate,
     
     var flourIngredients: [Ingredient] = []
     var remainingIngredients: [Ingredient] = []
+    var noPortions: String = ""
+    var poundsPerPortion: String = ""
+    var ouncesPerPortion: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,6 +119,9 @@ class RemainingIngredientsViewController: UIViewController, UITableViewDelegate,
             let destinationVC = segue.destination as! ScaleViewController
             destinationVC.flourIngredients = flourIngredients
             destinationVC.remainingIngredients = remainingIngredients
+            destinationVC.noPortions = noPortions
+            destinationVC.poundsPerPortion = poundsPerPortion
+            destinationVC.ouncesPerPortion = ouncesPerPortion
         }
     }
     

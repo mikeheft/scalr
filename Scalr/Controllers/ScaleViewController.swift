@@ -11,15 +11,17 @@ class ScaleViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var flourIngredients: [Ingredient] = []
     var remainingIngredients: [Ingredient] = []
     var scaledIngredients: [IngredientStruct] = []
-    
-
-    @IBOutlet weak var initialPoundsPerPortion: UITextField!
-    @IBOutlet weak var initialOuncesPerPortion: UITextField!
-    @IBOutlet weak var initialNoOfPortionsTextField: UITextField!
+    var noPortions: String = ""
+    var poundsPerPortion: String = ""
+    var ouncesPerPortion: String = ""
     
     @IBOutlet weak var desiredNoOfPortions: UITextField!
     @IBOutlet weak var desiredPoundsPerPortion: UITextField!
     @IBOutlet weak var desiredOuncesPerPortion: UITextField!
+    
+    @IBOutlet weak var initialNoPortions: UITextField!
+    @IBOutlet weak var initialPoundsPerPortion: UITextField!
+    @IBOutlet weak var initialOuncesPerPortion: UITextField!
     
     @IBOutlet weak var ingredientsTable: UITableView!
     
@@ -29,7 +31,6 @@ class ScaleViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.ingredientsTable.dataSource = self
         hideKeyboardWhenTappedAround()
         self.registerTableViewCells()
-        
         setInitialDefaults()
         
         Ingredient.calculatePercentages(flours: flourIngredients, remaining: remainingIngredients)
@@ -40,14 +41,6 @@ class ScaleViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let noOfPortions = desiredNoOfPortions.text
         let poundsPerPortion = desiredPoundsPerPortion.text
         let ouncesPerPortion = desiredOuncesPerPortion.text
-        desiredPortions(noOfPortions, poundsPerPortion, ouncesPerPortion)
-    }
-    
-    @IBAction func desiredNoPortionsChanged(_ sender: UITextField) {
-        let noOfPortions = desiredNoOfPortions.text
-        let poundsPerPortion = desiredPoundsPerPortion.text
-        let ouncesPerPortion = desiredOuncesPerPortion.text
-        
         desiredPortions(noOfPortions, poundsPerPortion, ouncesPerPortion)
     }
 
@@ -79,20 +72,20 @@ class ScaleViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func setInitialDefaults() {
-        let combinedIngredients: [Ingredient] = flourIngredients + remainingIngredients
-        
-        let result = combinedIngredients.reduce(into: [String:Double]()) { acc, ing in
-            let oz = acc["ounces", default: 0.0] + Double(ing.getOunces())
-            let lbs = acc["pounds", default: 0.0] + Double(ing.getPounds() / 16.0)
-            acc["pounds"] = lbs
-            acc["ounces"] = oz
-        }
-        self.initialPoundsPerPortion.text = String(format: "%.0f%",result["pounds"] ?? 0.0)
-        self.initialOuncesPerPortion.text = String(format: "%.2f%",result["ounces"] ?? 0.0)
-        self.initialNoOfPortionsTextField.text = "1"
-        self.desiredOuncesPerPortion.text = String(format: "%.2f%",result["ounces"] ?? 0.0)
-        self.desiredPoundsPerPortion.text = String(format: "%.0f%",result["pounds"] ?? 0.0)
-        self.desiredNoOfPortions.text = "1"
+//        let combinedIngredients: [Ingredient] = flourIngredients + remainingIngredients
+//
+//        let result = combinedIngredients.reduce(into: [String:Double]()) { acc, ing in
+//            let oz = acc["ounces", default: 0.0] + Double(ing.getOunces())
+//            let lbs = acc["pounds", default: 0.0] + Double(ing.getPounds() / 16.0)
+//            acc["pounds"] = lbs
+//            acc["ounces"] = oz
+//        }
+        initialNoPortions.text = noPortions
+        initialPoundsPerPortion.text = poundsPerPortion
+        initialOuncesPerPortion.text = ouncesPerPortion
+        self.desiredOuncesPerPortion.text = ouncesPerPortion
+        self.desiredPoundsPerPortion.text = poundsPerPortion
+        self.desiredNoOfPortions.text = noPortions
     }
     
     // Table
